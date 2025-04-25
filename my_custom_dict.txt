@@ -1,1 +1,11 @@
+## 我的词库（示例数据）
+# 个人信息
+张三	info	100
+13088888866	info	90
+311123196311123248X	info	80
 
+# 邮箱
+zhangsan@icloud.com	mail	100
+zhangsan@live.com	mail	90
+zhangsan@gmail.com	mail	80
+zhangsan@163.com	mail	70
