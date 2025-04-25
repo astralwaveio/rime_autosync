@@ -9,12 +9,12 @@ patch:
     style/font_point: 14
     style/label_font_point: 14
     style/comment_font_point: 13
-    style/inline_preedit: true
     style/horizontal: false
     style/label_format: '%s. '
     style/font_face: '霞鹜文楷等宽, Segoe UI Emoji, MiSans L3, 思源黑体, SF Pro, Noto Color Emoji'
     style/label_font_face: '霞鹜文楷等宽'
     style/comment_font_face: '霞鹜文楷等宽, MiSans L3' # 注释字体
+    layout/style/type/+: vertical
     layout/style/corner_radius: 2
     layout/style/hilited_corner_radius: 4
     layout/style/line_spacing: 10
