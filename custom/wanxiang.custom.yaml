@@ -17,6 +17,9 @@ patch:
     # 默认开启 emoji 补全，默认关闭声调
     switches/@4/reset: 1
     switches/@6/reset: 0
+
+    # 方案名称（显示修改）
+    schema/name: 拼音
     # 图标设置
     schema/+:
         icon: 'icons/zhong.ico' # 中文模式图标路径

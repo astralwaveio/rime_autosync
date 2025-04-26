@@ -1,3 +1,4 @@
 patch:
     speller/algebra:
         __include: wanxiang_en.schema:/全拼
+    schema/name: English
