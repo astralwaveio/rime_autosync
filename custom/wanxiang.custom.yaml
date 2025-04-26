@@ -12,9 +12,9 @@ patch:
     menu/alternative_select_labels: [①., ②., ③., ④., ⑤., ⑥., ⑦., ⑧., ⑨., ⑩.] # 自定义候选词序号标签
     # 模糊音
     speller/algebra/+:
-        - derive/^([zcs])h/$1/ # zh* ch* sh* 派生出 z* c* s*
-        - derive/^([zcs])([^h])/$1h$2/ # z* c* s*    派生出 zh* ch* sh*
-    # 默认开启补全
+        - derive/^([zcs])h/$1/
+        - derive/^([zcs])([^h])/$1h$2/
+    # 默认开启 emoji 补全，默认关闭声调
     switches/@4/reset: 1
     switches/@6/reset: 0
     # 图标设置
