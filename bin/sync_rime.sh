@@ -93,14 +93,9 @@ echo -e "${YELLOW}同步进度:${NC}"
 sync_output=$(sync_rime)
 sync_result=$?
 
-# 从输出中提取统计信息
-files_count=$(echo "$sync_output" | grep "files transferred" | awk '{print $1}')
-total_size=$(echo "$sync_output" | grep "bytes transferred" | awk '{print $5, $6}')
-
 # 显示结果
 if [ $sync_result -eq 0 ]; then
     echo -e "${GREEN}同步完成!${NC}"
-    echo -e "${GREEN}已传输 $files_count 个文件，总计 $total_size${NC}"
     echo -e "${GREEN}成功将Rime配置同步到iCloud${NC}"
 
     # 提示iCloud同步
