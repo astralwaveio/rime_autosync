@@ -22,6 +22,7 @@ EXCLUDE_LIST=(
     'lua/tips.userdb/'
     '*.userdb/'
     'zc.userdb*'
+    'custom_phrase.txt'
     '*.userdb.txt'
     'user.yaml'
     '.gitignore'
