@@ -16,6 +16,7 @@ patch:
         - derive/^([zcs])([^h])/$1h$2/ # z* c* s*    派生出 zh* ch* sh*
     # 默认开启补全
     switches/@4/reset: 1
+    switches/@6/reset: 0
     # 图标设置
     schema/+:
         icon: 'icons/zhong.ico' # 中文模式图标路径
