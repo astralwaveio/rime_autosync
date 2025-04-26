@@ -39,10 +39,12 @@ end
 -- 初始化词典（写模式，把 txt 加载进 db）
 function M.init(env)
     local config = env.engine.schema.config
-
+    local dist = rime_api.get_distribution_code_name() or ""
     local user_lua_dir = rime_api.get_user_data_dir() .. "/lua"
-    ensure_dir_exist(user_lua_dir)
-
+    -- 检查 dist 是否是 "hamster" 或 "Weasel"，如果是则不执行 ensure_dir_exist
+    if dist ~= "hamster" and dist ~= "Weasel" then
+        ensure_dir_exist(user_lua_dir)
+    end
     local db = wrapLevelDb('lua/tips', true)
     local user_path = rime_api.get_user_data_dir() .. "/lua/data/tips_show.txt"
     local shared_path = rime_api.get_shared_data_dir() .. "/lua/data/tips_show.txt"
