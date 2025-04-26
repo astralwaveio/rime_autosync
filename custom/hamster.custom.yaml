@@ -1,18 +1,23 @@
 patch:
   # 通用配置
-  general:
-    enableAppleCloud: false
+  # general:
+  #   enableAppleCloud: false
+  #   regexOnCopyFile:
+  #     - "^.text|.yaml$"
 
   # 键盘相关配置
   Keyboard:
     # 使用键盘类型:
-    custom(name): custom(中文26键)
+    # custom(name): 自定义键盘，其中 name 对应自定义键盘配置(customizeKeyboards)中的 name。如: custom(中文26键)
+    # useKeyboardType: custom(Qiao)
+
 
     # 配色方案
+    # 来源: https://github.com/rime/squirrel/blob/master/data/squirrel.yaml
     colorSchemas:
       - schemaName: schema
         name: 配色方案
-        author: Astral
+        author: 佚名
         back_color: "0xD9D3D0"
         button_back_color: "0x474747"
         button_pressed_back_color: "0xD0D0D0"
@@ -48,7 +53,7 @@ patch:
 
       - schemaName: 暗色
         name: ""
-        author: Astral
+        author: qiao
         back_color: "0x323232"
         button_back_color: "0x4B4949"
         button_pressed_back_color: "0x9F9F9F"
@@ -67,7 +72,7 @@ patch:
 
       - schemaName: RGB
         name: 红黄蓝
-        author: Astral
+        author: qiao
         back_color: "0xFF544945"
         button_back_color: "0xFFB0A4A3"
         button_pressed_back_color: "0xFF00C8FF"
@@ -85,7 +90,7 @@ patch:
 
       - schemaName: xkjd
         name: 键道
-        author: Astral
+        author: qiao
         back_color: "0xFF1F1C18"
         button_back_color: "0xFF1F1C18"
         button_pressed_back_color: "0xFF9F9F9F"
@@ -103,7 +108,7 @@ patch:
 
       - schemaName: PornHub
         name: PornHub
-        author: Astral
+        author: 周庸生
         back_color: 0x606060
         label_color: 0xffffff
         # border_color: 0x000000
@@ -152,17 +157,19 @@ patch:
         candidate_text_color: 0x595E00 # 候选栏次选文字颜色
         comment_text_color: 0x005947 # 候选栏次选文字 Comment 信息颜色
 
+
   # RIME 引擎相关配置
   rime:
-    maximumNumberOfCandidateWords: 100  # 最大候选显示数量
-    keyValueOfSwitchSimplifiedAndTraditional: simplified
-    overrideDictFiles: true  # 部署时覆盖键盘词库文件
-    regexOnOverrideDictFiles:
-      - "^.*[.]userdb.*$"
-      - "^.*[.]txt$"
-    regexOnCopyAppGroupDictFile:
-      - "^.*[.]userdb.*$"
-      - "^.*[.]txt$"
+    # maximumNumberOfCandidateWords: 100  # 最大候选显示数量
+    # keyValueOfSwitchSimplifiedAndTraditional: simplified # 简繁切换
+    # overrideDictFiles: false  # 部署时覆盖键盘词库文件
+    # regexOnOverrideDictFiles:  # 
+    #   - "^.*[.]userdb.*$"
+    #   - "^.*[.]txt$"
+    # regexOnCopyAppGroupDictFile:
+    #   - "^.*[.]userdb.*$"
+    #   - "^.*[.]txt$"
+
 
   # 键盘高度控制
   height:
