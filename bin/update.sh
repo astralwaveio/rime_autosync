@@ -17,18 +17,15 @@ print_blue() {
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # 获取仓库根目录
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
-# 设置日志文件
-LOG_FILE="$REPO_DIR/bin/update_log.log"
 # 设置临时备份目录
 BACKUP_DIR="/tmp/rime_update_backup"
 
 # 记录时间戳
-echo "===== 更新开始: $(date) =====" >>"$LOG_FILE"
+print_blue "===== 更新开始: $(date) ====="
 
 # 进入仓库目录
 cd "$REPO_DIR" || {
     print_red "无法进入仓库目录: $REPO_DIR"
-    echo "无法进入仓库目录: $REPO_DIR" >>"$LOG_FILE"
     exit 1
 }
 
@@ -42,13 +39,13 @@ UNTRACKED_FILES=$(git ls-files --others --exclude-standard)
 
 # 备份未被跟踪的文件
 if [ -n "$UNTRACKED_FILES" ]; then
-    echo "备份以下未跟踪的文件:" >>"$LOG_FILE"
+    print_blue "备份以下未跟踪的文件:"
     for file in $UNTRACKED_FILES; do
         # 创建目标目录结构
         mkdir -p "$BACKUP_DIR/$(dirname "$file")"
         # 复制文件
         cp -f "$file" "$BACKUP_DIR/$file" 2>/dev/null
-        echo " - $file" >>"$LOG_FILE"
+        echo " - $file"
     done
     print_green "已备份 $(echo "$UNTRACKED_FILES" | wc -w | xargs) 个本地文件"
 else
@@ -64,14 +61,12 @@ CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 # 获取最新的更改
 git fetch --all || {
     print_red "获取远程更新失败"
-    echo "获取远程更新失败" >>"$LOG_FILE"
     exit 1
 }
 
 # 重置本地文件到远程状态 (忽略所有本地更改)
 git reset --hard "origin/$CURRENT_BRANCH" || {
     print_red "重置到远程状态失败"
-    echo "重置到远程状态失败" >>"$LOG_FILE"
     exit 1
 }
 
@@ -98,11 +93,38 @@ if [ -d "custom" ]; then
     print_green "自定义配置文件已更新"
 else
     print_red "custom目录不存在"
-    echo "custom目录不存在" >>"$LOG_FILE"
 fi
 
 # 5. 清理备份
 rm -rf "$BACKUP_DIR"
 
 print_green "更新完成！"
-echo "===== 更新结束: $(date) =====" >>"$LOG_FILE"
+
+# 6. 重新部署Squirrel
+print_blue "正在重新部署Rime..."
+
+# 检测系统类型并执行相应的部署命令
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS系统 - 重新部署鼠须管(Squirrel)
+    if [ -f "/Library/Input Methods/Squirrel.app/Contents/MacOS/Squirrel" ]; then
+        "/Library/Input Methods/Squirrel.app/Contents/MacOS/Squirrel" --reload
+        print_green "鼠须管(Squirrel)已重新部署"
+    else
+        print_red "未找到鼠须管(Squirrel)，请手动部署"
+    fi
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Linux系统 - 重新部署ibus-rime或fcitx-rime
+    if command -v ibus-daemon &>/dev/null; then
+        ibus-daemon -rdx
+        print_green "ibus-rime已重新部署"
+    elif command -v fcitx &>/dev/null; then
+        fcitx -r
+        print_green "fcitx-rime已重新部署"
+    else
+        print_red "未找到ibus或fcitx，请手动部署Rime"
+    fi
+else
+    print_red "未知操作系统，请手动部署Rime"
+fi
+
+print_blue "===== 更新结束: $(date) ====="
