@@ -16,6 +16,8 @@ EXCLUDE_LIST=(
     '.github/'
     'build/'
     'sync/'
+    'bin/'
+    'custom/'
     'zc.userdb/'
     'lua/tips.userdb/'
     '*.userdb/'
