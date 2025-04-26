@@ -4,7 +4,7 @@
 #错音错字对照表
 ---
 name: corrections
-version: "2025-04-25 23:25"
+version: "2025-04-26 21:19"
 sort: by_weight
 ...
 株木琅玛	zhū mù láng mǎ	12	(有声)
@@ -45,7 +45,7 @@ sort: by_weight
 渑池	sheng chi	400	miǎn chí
 铅山	qian shan	345	yán shān
 铅山县	qian shan xian	182	铅(yán)山县
-按耐	àn nài	0	按捺(nà)
+按耐	àn nài	30	按捺(nà)
 甭介	béng jie	56	甭价(jie)
 别介	bié jie	31	别价(jie)
 槟榔	bin lang	633	bīng láng
@@ -56,14 +56,14 @@ sort: by_weight
 龇牙	ci ya	62	zī yá
 凑活	còu huo	246	凑合(he)
 道行	dao hang	270	dào héng
-给予	gei yu	11349	jǐ yǔ
+给予	gei yu	349	jǐ yǔ
 厚朴	hou pu	52	hòu pò
-馄饨	hun dun	898	hún tun
-角色	jiao se	20102	jué sè
+馄饨	hun dun	400	hún tun
+角色	jiao se	201	jué sè
 结扎	jie zha	126	jié zā
 钜惠	jù huì	549	(巨)惠
 六安	liu an	110	lù ān
-埋怨	mai yuan	1138	mán yuàn
+埋怨	mai yuan	138	mán yuàn
 模板	mo ban	14674	mú bǎn
 模具	mo ju	1935	mú jù
 模样	mo yang	5185	mú yàng
