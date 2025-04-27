@@ -69,12 +69,26 @@ keyboards:
                 openURL:
                   url: surge:///toggle
             label: 
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///start
+                label: " "
+                display: true
+                processByRIME: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///stop
+                label: " "
+                display: true
+                processByRIME: true
+                direction: down
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
-              character:
-                char: ""
-            width: available
             label: 󱇚
             swipe:
               - action:
@@ -141,8 +155,6 @@ keyboards:
                 direction: down
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
-
-        # 󱇚
         rowHeight:
           portrait: 32
           landscape: 28
@@ -1393,12 +1405,26 @@ keyboards:
                 openURL:
                   url: surge:///toggle
             label: 
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///start
+                label: " "
+                display: true
+                processByRIME: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///stop
+                label: " "
+                display: true
+                processByRIME: true
+                direction: down
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
-              character:
-                char: ""
-            width: available
             label: 󱇚
             swipe:
               - action:
@@ -1736,12 +1762,26 @@ keyboards:
                 openURL:
                   url: surge:///toggle
             label: 
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///start
+                label: " "
+                display: true
+                processByRIME: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///stop
+                label: " "
+                display: true
+                processByRIME: true
+                direction: down
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
-              character:
-                char: ""
-            width: available
             label: 󱇚
             swipe:
               - action:
@@ -2247,12 +2287,26 @@ keyboards:
                 openURL:
                   url: surge:///toggle
             label: 
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///start
+                label: " "
+                display: true
+                processByRIME: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///stop
+                label: " "
+                display: true
+                processByRIME: true
+                direction: down
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
-              character:
-                char: ""
-            width: available
             label: 󱇚
             swipe:
               - action:
@@ -3197,12 +3251,26 @@ keyboards:
                 openURL:
                   url: surge:///toggle
             label: 
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///start
+                label: " "
+                display: true
+                processByRIME: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///stop
+                label: " "
+                display: true
+                processByRIME: true
+                direction: down
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
-              character:
-                char: ""
-            width: available
             label: 󱇚
             swipe:
               - action:
@@ -3541,12 +3609,26 @@ keyboards:
                 openURL:
                   url: surge:///toggle
             label: 
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///start
+                label: " "
+                display: true
+                processByRIME: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: surge:///stop
+                label: " "
+                display: true
+                processByRIME: true
+                direction: down
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
-              character:
-                char: ""
-            width: available
             label: 󱇚
             swipe:
               - action:
