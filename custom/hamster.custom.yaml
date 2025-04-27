@@ -69,7 +69,7 @@ patch:
   toolbar/displayIndexOfCandidate: false  # 显示候选项序号
   toolbar/displayKeyboardDismissButton: true  # 显示键盘收起图标
   toolbar/heightOfCodingArea: 15
-  toolbar/heightOfToolbar: 47
+  toolbar/heightOfToolbar: 40
   toolbar/swipePaging: true  # 划动分页模式
 
   # 声音与震动
