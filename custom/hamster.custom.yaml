@@ -1,5 +1,3 @@
-# 优化后的YAML代码
-
 patch:
   # 包含文件设置
   "keyboards":
