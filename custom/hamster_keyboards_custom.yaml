@@ -69,6 +69,8 @@ keyboards:
                 openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
@@ -81,22 +83,24 @@ keyboards:
                 openURL:
                   url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
                   url: x-web-search://?#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            width: available
             label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
-                label: " "
-                display: true
-                processByRIME: true
                 direction: down
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -1347,6 +1351,8 @@ keyboards:
                 openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
@@ -1359,22 +1365,24 @@ keyboards:
                 openURL:
                   url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
                   url: x-web-search://?#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            width: available
             label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
-                label: " "
-                display: true
-                processByRIME: true
                 direction: down
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -1646,6 +1654,8 @@ keyboards:
                 openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
@@ -1658,22 +1668,24 @@ keyboards:
                 openURL:
                   url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
                   url: x-web-search://?#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            width: available
             label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
-                label: " "
-                display: true
-                processByRIME: true
                 direction: down
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -2113,6 +2125,8 @@ keyboards:
                 openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
@@ -2125,22 +2139,24 @@ keyboards:
                 openURL:
                   url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
                   url: x-web-search://?#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            width: available
             label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
-                label: " "
-                display: true
-                processByRIME: true
                 direction: down
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -3019,6 +3035,8 @@ keyboards:
                 openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
@@ -3031,22 +3049,24 @@ keyboards:
                 openURL:
                   url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
                   url: x-web-search://?#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            width: available
             label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
-                label: " "
-                display: true
-                processByRIME: true
                 direction: down
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -3319,6 +3339,8 @@ keyboards:
                 openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
@@ -3331,22 +3353,24 @@ keyboards:
                 openURL:
                   url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
                   url: x-web-search://?#pasteboardContent
             label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            width: available
             label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
-                label: " "
-                display: true
-                processByRIME: true
                 direction: down
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
