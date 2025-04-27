@@ -1209,7 +1209,7 @@ keyboards:
               portrait:
                 percentage: 0.34
               landscape: available
-            label: 󱇄󱥢 虎󰝹码 󱥢󱇂
+            label: 󱇄󱥢 拼 音 󱥢󱇂
             swipe:
               - action:
                   shortcutCommand: "#次选上屏"
@@ -2390,7 +2390,7 @@ keyboards:
             darkModeStyleName: cn_en
           - action: space
             width: available
-            label: 󱇄󱥢 符󰝹号 󱥢󱇂
+            label: 󱇄󱥢 符 号 󱥢󱇂
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -3403,7 +3403,7 @@ keyboards:
               portrait:
                 percentage: 0.34
               landscape: available
-            label: 󱇄󱥢 英󰝹文 󱥢󱇂
+            label: 󱇄󱥢 English 󱥢󱇂
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -4385,7 +4385,7 @@ keyboards:
               portrait:
                 percentage: 0.34
               landscape: available
-            label: 󱇄󱥢 符󰝹号 󱥢󱇂
+            label: 󱇄󱥢 符 号 󱥢󱇂
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
