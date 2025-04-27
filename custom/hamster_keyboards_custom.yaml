@@ -86,46 +86,11 @@ keyboards:
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
-              character:
-                char: ""
-            width: available
-            label: 
-            swipe:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+p
-                label: " "
-                display: true
-                processByRIME: true
-                direction: up
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+n
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: hamster://dev.fuxiao.app.hamster/uploadInputSchema
-              #   label: Wi-Fi上传
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: shortcuts://run-shortcut?name=拼接图片
-              #   label: 拼接图片
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
               shortcutCommand:
                 sendKeys:
                   keys: Control+t
             width: available
-            label: 🔍
+            label: 
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -137,6 +102,16 @@ keyboards:
               - action:
                   shortcutCommand:
                     openURL:
+                      url: x-web-search://?#pasteboardContent
+                label: Google
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+                label: GitHub
+              - action:
+                  shortcutCommand:
+                    openURL:
                       url: bilibili://search?keyword=#pasteboardContent
                 label: B站
               - action:
@@ -144,16 +119,6 @@ keyboards:
                     openURL:
                       url: youtube://results?search_query=#pasteboardContent
                 label: YouTube
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: x-web-search://?#pasteboardContent
-                label: Google
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: x-web-search://?https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
-                label: GitHub
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -161,7 +126,7 @@ keyboards:
                 sendKeys:
                   keys: Control+f
             width: available
-            label: 󰧛
+            label: 󰧛 行尾
             swipe:
               - action:
                   shortcutCommand: "#行尾"
@@ -222,7 +187,7 @@ keyboards:
                   character:
                     char: "@"
                 label:
-                  text: "@造词"
+                  text: "@"
                 display: true
                 processByRIME: true
                 direction: up
@@ -701,7 +666,7 @@ keyboards:
             swipe:
               - action:
                   character:
-                    char: “
+                    char: “︁
                 label:
                   text: ""
                 display: true
@@ -709,8 +674,8 @@ keyboards:
                 direction: up
               - action:
                   character:
-                    char: ;
-                label: 快符
+                    char: ；
+                label: "；"
                 display: true
                 processByRIME: true
                 direction: down
@@ -730,7 +695,7 @@ keyboards:
             swipe:
               - action:
                   character:
-                    char: ”
+                    char: ”︁
                 label:
                   text: ""
                 display: true
@@ -739,7 +704,7 @@ keyboards:
               - action:
                   character:
                     char: "'"
-                label: 英文
+                label: "'"
                 display: true
                 processByRIME: true
                 direction: down
@@ -808,7 +773,7 @@ keyboards:
                 label:
                   text: "`"
                 display: true
-                processByRIME: true
+                processByRIME: false
                 direction: up
               - action:
                   character:
@@ -1427,7 +1392,7 @@ keyboards:
                 sendKeys:
                   keys: Control+b
             width: available
-            label: 󰧙
+            label: 󰧙 行首
             swipe:
               - action:
                   shortcutCommand: "#行首"
@@ -1441,24 +1406,6 @@ keyboards:
                     sendKeys:
                       keys: Control+a
                 label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 
-            callout:
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: hamster://dev.fuxiao.app.hamster/uploadInputSchema
-              #   label: Wi-Fi上传
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: shortcuts://run-shortcut?name=拼接图片
-              #   label: 拼接图片
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -1507,18 +1454,23 @@ keyboards:
               - action:
                   shortcutCommand:
                     openURL:
+                      url: x-web-search://?#pasteboardContent
+                label: Google
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+                label: GitHub
+              - action:
+                  shortcutCommand:
+                    openURL:
                       url: bilibili://search?keyword=#pasteboardContent
                 label: B站
               - action:
                   shortcutCommand:
                     openURL:
-                      url: zhihu://search?q=#pasteboardContent
-                label: 知乎
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: xhsdiscover://search/result?keyword=#pasteboardContent
-                label: 小红书
+                      url: youtube://results?search_query=#pasteboardContent
+                label: YouTube
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -1813,7 +1765,7 @@ keyboards:
                 sendKeys:
                   keys: Control+b
             width: available
-            label: 󰧙
+            label: 󰧙 行首
             swipe:
               - action:
                   shortcutCommand: "#行首"
@@ -1827,24 +1779,6 @@ keyboards:
                     sendKeys:
                       keys: Control+a
                 label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 
-            callout:
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: hamster://dev.fuxiao.app.hamster/uploadInputSchema
-              #   label: Wi-Fi上传
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: shortcuts://run-shortcut?name=拼接图片
-              #   label: 拼接图片
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -1893,18 +1827,23 @@ keyboards:
               - action:
                   shortcutCommand:
                     openURL:
+                      url: x-web-search://?#pasteboardContent
+                label: Google
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+                label: GitHub
+              - action:
+                  shortcutCommand:
+                    openURL:
                       url: bilibili://search?keyword=#pasteboardContent
                 label: B站
               - action:
                   shortcutCommand:
                     openURL:
-                      url: zhihu://search?q=#pasteboardContent
-                label: 知乎
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: xhsdiscover://search/result?keyword=#pasteboardContent
-                label: 小红书
+                      url: youtube://results?search_query=#pasteboardContent
+                label: YouTube
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -1912,7 +1851,7 @@ keyboards:
                 sendKeys:
                   keys: Control+f
             width: available
-            label: 󰧛
+            label: 󰧛 行尾
             swipe:
               - action:
                   shortcutCommand: "#行尾"
@@ -2367,7 +2306,7 @@ keyboards:
                 sendKeys:
                   keys: Control+b
             width: available
-            label: 󰧙
+            label: 󰧙 行首
             swipe:
               - action:
                   shortcutCommand: "#行首"
@@ -2381,24 +2320,6 @@ keyboards:
                     sendKeys:
                       keys: Control+a
                 label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 
-            callout:
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: hamster://dev.fuxiao.app.hamster/uploadInputSchema
-              #   label: Wi-Fi上传
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: shortcuts://run-shortcut?name=拼接图片
-              #   label: 拼接图片
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -2447,18 +2368,23 @@ keyboards:
               - action:
                   shortcutCommand:
                     openURL:
+                      url: x-web-search://?#pasteboardContent
+                label: Google
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+                label: GitHub
+              - action:
+                  shortcutCommand:
+                    openURL:
                       url: bilibili://search?keyword=#pasteboardContent
                 label: B站
               - action:
                   shortcutCommand:
                     openURL:
-                      url: zhihu://search?q=#pasteboardContent
-                label: 知乎
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: xhsdiscover://search/result?keyword=#pasteboardContent
-                label: 小红书
+                      url: youtube://results?search_query=#pasteboardContent
+                label: YouTube
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -2466,7 +2392,7 @@ keyboards:
                 sendKeys:
                   keys: Control+f
             width: available
-            label: 󰧛
+            label: 󰧛 行尾
             swipe:
               - action:
                   shortcutCommand: "#行尾"
@@ -3360,7 +3286,7 @@ keyboards:
                 sendKeys:
                   keys: Control+b
             width: available
-            label: 󰧙
+            label: 󰧙 行首
             swipe:
               - action:
                   shortcutCommand: "#行首"
@@ -3374,24 +3300,6 @@ keyboards:
                     sendKeys:
                       keys: Control+a
                 label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 
-            callout:
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: hamster://dev.fuxiao.app.hamster/uploadInputSchema
-              #   label: Wi-Fi上传
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: shortcuts://run-shortcut?name=拼接图片
-              #   label: 拼接图片
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -3440,18 +3348,23 @@ keyboards:
               - action:
                   shortcutCommand:
                     openURL:
+                      url: x-web-search://?#pasteboardContent
+                label: Google
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+                label: GitHub
+              - action:
+                  shortcutCommand:
+                    openURL:
                       url: bilibili://search?keyword=#pasteboardContent
                 label: B站
               - action:
                   shortcutCommand:
                     openURL:
-                      url: zhihu://search?q=#pasteboardContent
-                label: 知乎
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: xhsdiscover://search/result?keyword=#pasteboardContent
-                label: 小红书
+                      url: youtube://results?search_query=#pasteboardContent
+                label: YouTube
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -3459,7 +3372,7 @@ keyboards:
                 sendKeys:
                   keys: Control+f
             width: available
-            label: 󰧛
+            label: 󰧛 行尾
             swipe:
               - action:
                   shortcutCommand: "#行尾"
@@ -3747,7 +3660,7 @@ keyboards:
                 sendKeys:
                   keys: Control+b
             width: available
-            label: 󰧙
+            label: 󰧙 行首
             swipe:
               - action:
                   shortcutCommand: "#行首"
@@ -3761,24 +3674,6 @@ keyboards:
                     sendKeys:
                       keys: Control+a
                 label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 
-            callout:
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: hamster://dev.fuxiao.app.hamster/uploadInputSchema
-              #   label: Wi-Fi上传
-              # - action:
-              #     shortcutCommand:
-              #       openURL:
-              #         url: shortcuts://run-shortcut?name=拼接图片
-              #   label: 拼接图片
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -3827,18 +3722,23 @@ keyboards:
               - action:
                   shortcutCommand:
                     openURL:
+                      url: x-web-search://?#pasteboardContent
+                label: Google
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+                label: GitHub
+              - action:
+                  shortcutCommand:
+                    openURL:
                       url: bilibili://search?keyword=#pasteboardContent
                 label: B站
               - action:
                   shortcutCommand:
                     openURL:
-                      url: zhihu://search?q=#pasteboardContent
-                label: 知乎
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: xhsdiscover://search/result?keyword=#pasteboardContent
-                label: 小红书
+                      url: youtube://results?search_query=#pasteboardContent
+                label: YouTube
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -3846,7 +3746,7 @@ keyboards:
                 sendKeys:
                   keys: Control+f
             width: available
-            label: 󰧛
+            label: 󰧛 行尾
             swipe:
               - action:
                   shortcutCommand: "#行尾"
