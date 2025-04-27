@@ -66,31 +66,30 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                sendKeys:
-                  keys: Control+b
-            width: available
-            label: 󰧙 行首
-            swipe:
-              - action:
-                  shortcutCommand: "#行首"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+a
-                label: " "
+                openURL:
+                  url: bilibili://search?keyword=#pasteboardContent
+            label: 
+          - action:
+              shortcutCommand:
+                openURL:
+                  url: youtube://results?search_query=#pasteboardContent
+            label: 
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
-                sendKeys:
-                  keys: Control+t
+                openURL:
+                  url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+            label: 
+          - action:
+              shortcutCommand:
+                openURL:
+                  url: x-web-search://?#pasteboardContent
+            label: 
+          - action:
+              shortcutCommand: "#关闭键盘"
             width: available
-            label: 
+            label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -98,50 +97,6 @@ keyboards:
                 display: true
                 processByRIME: true
                 direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: x-web-search://?#pasteboardContent
-                label: Google
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
-                label: GitHub
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: bilibili://search?keyword=#pasteboardContent
-                label: B站
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: youtube://results?search_query=#pasteboardContent
-                label: YouTube
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: Control+f
-            width: available
-            label: 󰧛 行尾
-            swipe:
-              - action:
-                  shortcutCommand: "#行尾"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+e
-                label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -1153,7 +1108,7 @@ keyboards:
           - action: enter
             width:
               percentage: 0.22
-            label: 
+            label: 󰌑
             swipe:
               - action:
                   shortcutCommand: "#换行"
@@ -1389,60 +1344,30 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                sendKeys:
-                  keys: Control+b
-            width: available
-            label: 󰧙 行首
-            swipe:
-              - action:
-                  shortcutCommand: "#行首"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+a
-                label: " "
+                openURL:
+                  url: bilibili://search?keyword=#pasteboardContent
+            label: 
+          - action:
+              shortcutCommand:
+                openURL:
+                  url: youtube://results?search_query=#pasteboardContent
+            label: 
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
-                  url: weixin://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: weixin://scanqrcode
-                label: 扫一扫
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+            label: 
           - action:
               shortcutCommand:
                 openURL:
-                  url: https://www.perplexity.ai/search/new?q=#pasteboardContent
-            width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: x-web-search://?#pasteboardContent
+            label: 
           - action:
-              shortcutCommand:
-                openURL:
-                  url: https://www.google.com/search?q=#pasteboardContent
+              shortcutCommand: "#关闭键盘"
             width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 󱄅
+            label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -1450,50 +1375,6 @@ keyboards:
                 display: true
                 processByRIME: true
                 direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: x-web-search://?#pasteboardContent
-                label: Google
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
-                label: GitHub
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: bilibili://search?keyword=#pasteboardContent
-                label: B站
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: youtube://results?search_query=#pasteboardContent
-                label: YouTube
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: Control+f
-            width: available
-            label: 󰧛 行尾
-            swipe:
-              - action:
-                  shortcutCommand: "#行尾"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+e
-                label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -1726,7 +1607,7 @@ keyboards:
           - action: enter
             width:
               percentage: 0.16
-            label: 
+            label: 󰌑
             swipe:
               - action:
                   shortcutCommand: "#换行"
@@ -1762,60 +1643,30 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                sendKeys:
-                  keys: Control+b
-            width: available
-            label: 󰧙 行首
-            swipe:
-              - action:
-                  shortcutCommand: "#行首"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+a
-                label: " "
+                openURL:
+                  url: bilibili://search?keyword=#pasteboardContent
+            label: 
+          - action:
+              shortcutCommand:
+                openURL:
+                  url: youtube://results?search_query=#pasteboardContent
+            label: 
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
-                  url: weixin://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: weixin://scanqrcode
-                label: 扫一扫
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+            label: 
           - action:
               shortcutCommand:
                 openURL:
-                  url: https://www.perplexity.ai/search/new?q=#pasteboardContent
-            width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: x-web-search://?#pasteboardContent
+            label: 
           - action:
-              shortcutCommand:
-                openURL:
-                  url: https://www.google.com/search?q=#pasteboardContent
+              shortcutCommand: "#关闭键盘"
             width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 󱄅
+            label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -1823,50 +1674,6 @@ keyboards:
                 display: true
                 processByRIME: true
                 direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: x-web-search://?#pasteboardContent
-                label: Google
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
-                label: GitHub
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: bilibili://search?keyword=#pasteboardContent
-                label: B站
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: youtube://results?search_query=#pasteboardContent
-                label: YouTube
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: Control+f
-            width: available
-            label: 󰧛 行尾
-            swipe:
-              - action:
-                  shortcutCommand: "#行尾"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+e
-                label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -2267,7 +2074,7 @@ keyboards:
           - action: enter
             width:
               percentage: 0.22
-            label: 
+            label: 󰌑
             swipe:
               - action:
                   shortcutCommand: "#换行"
@@ -2303,60 +2110,30 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                sendKeys:
-                  keys: Control+b
-            width: available
-            label: 󰧙 行首
-            swipe:
-              - action:
-                  shortcutCommand: "#行首"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+a
-                label: " "
+                openURL:
+                  url: bilibili://search?keyword=#pasteboardContent
+            label: 
+          - action:
+              shortcutCommand:
+                openURL:
+                  url: youtube://results?search_query=#pasteboardContent
+            label: 
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
-                  url: weixin://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: weixin://scanqrcode
-                label: 扫一扫
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+            label: 
           - action:
               shortcutCommand:
                 openURL:
-                  url: https://www.perplexity.ai/search/new?q=#pasteboardContent
-            width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: x-web-search://?#pasteboardContent
+            label: 
           - action:
-              shortcutCommand:
-                openURL:
-                  url: https://www.google.com/search?q=#pasteboardContent
+              shortcutCommand: "#关闭键盘"
             width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 󱄅
+            label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -2364,50 +2141,6 @@ keyboards:
                 display: true
                 processByRIME: true
                 direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: x-web-search://?#pasteboardContent
-                label: Google
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
-                label: GitHub
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: bilibili://search?keyword=#pasteboardContent
-                label: B站
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: youtube://results?search_query=#pasteboardContent
-                label: YouTube
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: Control+f
-            width: available
-            label: 󰧛 行尾
-            swipe:
-              - action:
-                  shortcutCommand: "#行尾"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+e
-                label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -3245,7 +2978,7 @@ keyboards:
           - action: enter
             width:
               percentage: 0.22
-            label: 
+            label: 󰌑
             swipe:
               - action:
                   shortcutCommand: "#换行"
@@ -3283,60 +3016,30 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                sendKeys:
-                  keys: Control+b
-            width: available
-            label: 󰧙 行首
-            swipe:
-              - action:
-                  shortcutCommand: "#行首"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+a
-                label: " "
+                openURL:
+                  url: bilibili://search?keyword=#pasteboardContent
+            label: 
+          - action:
+              shortcutCommand:
+                openURL:
+                  url: youtube://results?search_query=#pasteboardContent
+            label: 
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
-                  url: weixin://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: weixin://scanqrcode
-                label: 扫一扫
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+            label: 
           - action:
               shortcutCommand:
                 openURL:
-                  url: https://www.perplexity.ai/search/new?q=#pasteboardContent
-            width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: x-web-search://?#pasteboardContent
+            label: 
           - action:
-              shortcutCommand:
-                openURL:
-                  url: https://www.google.com/search?q=#pasteboardContent
+              shortcutCommand: "#关闭键盘"
             width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 󱄅
+            label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -3344,50 +3047,6 @@ keyboards:
                 display: true
                 processByRIME: true
                 direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: x-web-search://?#pasteboardContent
-                label: Google
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
-                label: GitHub
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: bilibili://search?keyword=#pasteboardContent
-                label: B站
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: youtube://results?search_query=#pasteboardContent
-                label: YouTube
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: Control+f
-            width: available
-            label: 󰧛 行尾
-            swipe:
-              - action:
-                  shortcutCommand: "#行尾"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+e
-                label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
@@ -3657,60 +3316,30 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                sendKeys:
-                  keys: Control+b
-            width: available
-            label: 󰧙 行首
-            swipe:
-              - action:
-                  shortcutCommand: "#行首"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+a
-                label: " "
+                openURL:
+                  url: bilibili://search?keyword=#pasteboardContent
+            label: 
+          - action:
+              shortcutCommand:
+                openURL:
+                  url: youtube://results?search_query=#pasteboardContent
+            label: 
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand:
                 openURL:
-                  url: weixin://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: weixin://scanqrcode
-                label: 扫一扫
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
+            label: 
           - action:
               shortcutCommand:
                 openURL:
-                  url: https://www.perplexity.ai/search/new?q=#pasteboardContent
-            width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
+                  url: x-web-search://?#pasteboardContent
+            label: 
           - action:
-              shortcutCommand:
-                openURL:
-                  url: https://www.google.com/search?q=#pasteboardContent
+              shortcutCommand: "#关闭键盘"
             width: available
-            label: 
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              character:
-                char: ""
-            width: available
-            label: 󱄅
+            label: 󰄼
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -3718,50 +3347,6 @@ keyboards:
                 display: true
                 processByRIME: true
                 direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: x-web-search://?#pasteboardContent
-                label: Google
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: https://github.com/search?q=#pasteboardContent+pushed%3A%3E2023-01-01&type=repositories&s=stars&o=desc
-                label: GitHub
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: bilibili://search?keyword=#pasteboardContent
-                label: B站
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: youtube://results?search_query=#pasteboardContent
-                label: YouTube
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: Control+f
-            width: available
-            label: 󰧛 行尾
-            swipe:
-              - action:
-                  shortcutCommand: "#行尾"
-                label: " "
-                display: true
-                processByRIME: true
-                direction: down
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+e
-                label: " "
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
         rowHeight:
           portrait: 32
           landscape: 28
