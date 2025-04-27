@@ -123,50 +123,6 @@ keyboards:
           - action:
               shortcutCommand:
                 sendKeys:
-                  keys: U
-            width: available
-            label: ¹
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: mqqapi://scanqrcode
-                label: 扫一扫
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: I
-            width: available
-            label: ²
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: weixin://scanqrcode
-                label: 扫一扫
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: O
-            width: available
-            label: ³
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
-                  keys: P
-            width: available
-            label: ⁴
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                sendKeys:
                   keys: Control+t
             width: available
             label: 󰐄
@@ -843,18 +799,18 @@ keyboards:
             swipe:
               - action:
                   character:
-                    char: "*"
+                    char: "`"
                 label:
-                  text: ""
+                  text: "`"
                 display: true
                 processByRIME: true
                 direction: up
               - action:
                   character:
-                    char: "`"
-                label: 反查
+                    char: "```"
+                label: "```"
                 display: true
-                processByRIME: true
+                processByRIME: false
                 direction: down
             callout:
               - action:
@@ -1139,50 +1095,6 @@ keyboards:
                   character:
                     char: "9"
                 label: "9"
-            lightModeStyleName: shift_delete_light
-            darkModeStyleName: shift_delete
-          - action:
-              character:
-                char: "'"
-            width:
-              percentage: 0.11
-            label: ⚡
-            callout:
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+i
-                label: Emoji
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+o
-                label: 简繁
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+l
-                label: 联想预测
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+semicolon
-                label: 翻译
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+u
-                label: 字集
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Control+m
-                label: 火星文
-              - action:
-                  shortcutCommand:
-                    sendKeys:
-                      keys: Shift+Return
-                label: preedit
             lightModeStyleName: shift_delete_light
             darkModeStyleName: shift_delete
           - action:
@@ -1538,20 +1450,6 @@ keyboards:
                     openURL:
                       url: shortcuts://run-shortcut?name=拼接图片
                 label: 拼接图片
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                openURL:
-                  url: mqqapi://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: mqqapi://scanqrcode
-                label: 扫一扫
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -1938,20 +1836,6 @@ keyboards:
                     openURL:
                       url: shortcuts://run-shortcut?name=拼接图片
                 label: 拼接图片
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                openURL:
-                  url: mqqapi://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: mqqapi://scanqrcode
-                label: 扫一扫
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -2367,13 +2251,6 @@ keyboards:
             lightModeStyleName: shift_delete_light
             darkModeStyleName: shift_delete
           - action:
-              keyboardType: iOS-中文
-            width:
-              percentage: 0.11
-            label: ⚡
-            lightModeStyleName: shift_delete_light
-            darkModeStyleName: shift_delete
-          - action:
               keyboardType: iOS-英文
             width:
               percentage: 0.11
@@ -2513,20 +2390,6 @@ keyboards:
                     openURL:
                       url: shortcuts://run-shortcut?name=拼接图片
                 label: 拼接图片
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                openURL:
-                  url: mqqapi://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: mqqapi://scanqrcode
-                label: 扫一扫
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -3376,14 +3239,6 @@ keyboards:
             lightModeStyleName: shift_delete_light
             darkModeStyleName: shift_delete
           - action:
-              character:
-                char: ""
-            width:
-              percentage: 0.11
-            label: ⚡
-            lightModeStyleName: shift_delete_light
-            darkModeStyleName: shift_delete
-          - action:
               keyboardType: iOS-中文
             width:
               percentage: 0.11
@@ -3528,20 +3383,6 @@ keyboards:
                     openURL:
                       url: shortcuts://run-shortcut?name=拼接图片
                 label: 拼接图片
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                openURL:
-                  url: mqqapi://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: mqqapi://scanqrcode
-                label: 扫一扫
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
@@ -3929,20 +3770,6 @@ keyboards:
                     openURL:
                       url: shortcuts://run-shortcut?name=拼接图片
                 label: 拼接图片
-            lightModeStyleName: hotkeys_light
-            darkModeStyleName: hotkeys
-          - action:
-              shortcutCommand:
-                openURL:
-                  url: mqqapi://
-            width: available
-            label: 
-            callout:
-              - action:
-                  shortcutCommand:
-                    openURL:
-                      url: mqqapi://scanqrcode
-                label: 扫一扫
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
           - action:
