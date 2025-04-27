@@ -1,41 +1,41 @@
+# 优化后的YAML代码
+
 patch:
+  # 包含文件设置
   "keyboards":
-    #__include: hamster_keyboards_candy:/keyboards
-    __include: hamster_keyboards_iOS:/keyboards
+    __include: hamster_keyboards_custom:/keyboards
   "keyboard/colorSchemas":
-    #__include: hamster_keyboards_candy:/colorSchemas
     __include: hamster_keyboards_custom:/colorSchemas
+
+  # 键盘基本设置
+  "keyboard/useKeyboardType": "iOS-中文"  # 键盘布局
+  "keyboard/useColorSchemaForLight": "iOS - Light"  # 亮色主题
+  "keyboard/useColorSchemaForDark": "iOS - Dark"  # 暗色主题
+  "keyboard/enableColorSchema": true
+
+  # 键盘布局和显示相关
   "keyboard/chineseEnglishSwitchButtonIsOnLeftOfSpaceButton": false
-  "keyboard/disableSwipeLabel": false  # 划动文本显示关闭
   "keyboard/displayButtonBubbles": true  # 显示按键气泡
   "keyboard/displayClassifySymbolButton": false
+  "keyboard/displayCommaButton": true
   "keyboard/displayInputMethodsSwitchKey": false  # 显示系统输入法切换键
   "keyboard/displaySemicolonButton": false
   "keyboard/displaySpaceLeftButton": false
   "keyboard/displaySpaceRightButton": false
-  #"keyboard/doubleTapThreshold": 0.300  # 双击空格输入句号间隔阈值（秒）
+  "keyboard/disableSwipeLabel": false  # 划动文本显示关闭
   "keyboard/dynamicallyAdjustPositionOfKeyLabel": false  # 动态调整按键文本显示位置
   "keyboard/enableButtonUnderBorder": false  # 显示按键底部边框
-  "keyboard/enableChineseWordSegmentationByShift": false  # Shift中文分词
-  "keyboard/enableColorSchema": true
-  "keyboard/enableCommaButton": true
-  "keyboard/enableEmbeddedInputMode": false  # 启用内嵌模式，建议调整工具栏高度40
-  "keyboard/enableInputPeriodBySpaceDoubleTap": false  # 双击空格输入句号
-  #"keyboard/enableLoadingTextForSpaceButton": true  # 启用空格加载文字
   "keyboard/enableNineGridOfNumericKeyboard": false
-  "keyboard/enableRimeOptionState": true  # 启用 RIME Option State
-  "keyboard/enableSpaceCursorDrag": true  # 空格长按移动光标
   "keyboard/enableSymbolKeyboard": false  # 启用分类符号键盘
-  "keyboard/enableSystemClipboardListener": true
   "keyboard/keyValueOfSpaceLeftButton": "，"
   "keyboard/keyValueOfSpaceRightButton": "。"
-  "keyboard/lockShiftState": false  # Shift状态锁定
-  "keyboard/pairsOfSymbols":
-    []
+  "keyboard/pairsOfSymbols": []
   "keyboard/showUppercasedCharacterOnChineseKeyboard": true
-  "swipe/spaceDragSensitivity": 15  # 移动光标灵敏度
-  "keyboard/spaceLeftButtonProcessByRIME": true
-  "keyboard/spaceRightButtonProcessByRIME": true
+  "keyboard/swipeLabelUpAndDownIrregularLayout": false  # 不规则显示划动文本
+  "keyboard/swipeLabelUpAndDownLayout": true  # 划动文本上下显示
+  "keyboard/upSwipeOnLeft": true  # 上划显示位置-左上侧
+
+  # 字体设置
   "keyboard/style/fontFace":
     - {url: "Arial-Bold.ttf"}                   # 英文字体
     - {url: "Segoe UI Emoji.ttf"}               # 表情符号
@@ -47,29 +47,31 @@ patch:
     - {url: "98WB-3.otf"}                       # 中文增补
     - {url: "98WB-U.otf"}                       # 中文增补
     - {url: "98WB-V.otf"}                       # 中文增补
-  "keyboard/swipeLabelUpAndDownIrregularLayout": false  # 不规则显示划动文本
-  "keyboard/swipeLabelUpAndDownLayout": true  # 划动文本上下显示
-  "keyboard/upSwipeOnLeft": true  # 上划显示位置-左上侧
-  "keyboard/useColorSchemaForDark": "iOS - Dark"  # 暗色主题
-  "keyboard/useColorSchemaForLight": "iOS - Light"  # 亮色主题
-  "keyboard/useKeyboardType": "iOS-中文"  # 键盘布局
-  "rime/overrideDictFiles": true
-  "rime/switchSimplifiedOrTraditionalOption": simplification
+
+  # 交互行为设置
+  "keyboard/enableChineseWordSegmentationByShift": false  # Shift中文分词
+  "keyboard/enableEmbeddedInputMode": false  # 启用内嵌模式，建议调整工具栏高度40
+  "keyboard/enableInputPeriodBySpaceDoubleTap": false  # 双击空格输入句号
+  "keyboard/enableRimeOptionState": true  # 启用 RIME Option State
+  "keyboard/enableSpaceCursorDrag": true  # 空格长按移动光标
+  "keyboard/enableSystemClipboardListener": true
+  "keyboard/lockShiftState": false  # Shift状态锁定
+  "keyboard/spaceLeftButtonProcessByRIME": true
+  "keyboard/spaceRightButtonProcessByRIME": true
+  "swipe/spaceDragSensitivity": 15  # 移动光标灵敏度
+
+  # 工具栏（候选栏）设置
+  "toolbar/enableToolbar": true  # 启用候选工具栏
   "toolbar/candidateCommentFontSize": 11
   "toolbar/candidateOnTop": true
   "toolbar/candidateTextFontSize": 18
   "toolbar/codingAreaFontSize": 12
-  "toolbar/displayCommentOfCandidate": true
-  "toolbar/displayIndexOfCandidate": false
-  "toolbar/heightOfCodingArea": 15
-  "toolbar/heightOfToolbar": 45
-
-  # 候选栏设置
   "toolbar/displayAppIconButton": false  # 显示应用图标-R
   "toolbar/displayCommentOfCandidate": true  # 显示候选Comment
   "toolbar/displayIndexOfCandidate": false  # 显示候选项序号
   "toolbar/displayKeyboardDismissButton": false  # 显示键盘收起图标
-  "toolbar/enableToolbar": true  # 启用候选工具栏
+  "toolbar/heightOfCodingArea": 15
+  "toolbar/heightOfToolbar": 45
   "toolbar/swipePaging": true  # 划动分页模式
 
   # 声音与震动
@@ -80,3 +82,4 @@ patch:
 
   # Rime设置
   "rime/overrideDictFiles": false
+  "rime/switchSimplifiedOrTraditionalOption": simplification
