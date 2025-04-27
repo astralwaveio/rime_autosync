@@ -67,6 +67,46 @@ keyboards:
           - action:
               shortcutCommand:
                 openURL:
+                  url: surge:///toggle
+            label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              character:
+                char: ""
+            width: available
+            label: 󱇚
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: " "
+                display: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: " "
+                display: true
+                direction: down
+            callout:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: 微信支付
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: 支付宝
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              shortcutCommand:
+                openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
             lightModeStyleName: hotkeys_light
@@ -94,13 +134,15 @@ keyboards:
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            label: 󰄼
+            label: 󰬧
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
                 direction: down
             lightModeStyleName: hotkeys_light
             darkModeStyleName: hotkeys
+
+        # 󱇚
         rowHeight:
           portrait: 32
           landscape: 28
@@ -1349,6 +1391,46 @@ keyboards:
           - action:
               shortcutCommand:
                 openURL:
+                  url: surge:///toggle
+            label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              character:
+                char: ""
+            width: available
+            label: 󱇚
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: " "
+                display: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: " "
+                display: true
+                direction: down
+            callout:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: 微信支付
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: 支付宝
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              shortcutCommand:
+                openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
             lightModeStyleName: hotkeys_light
@@ -1376,7 +1458,7 @@ keyboards:
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            label: 󰄼
+            label: 󰬧
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -1652,6 +1734,46 @@ keyboards:
           - action:
               shortcutCommand:
                 openURL:
+                  url: surge:///toggle
+            label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              character:
+                char: ""
+            width: available
+            label: 󱇚
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: " "
+                display: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: " "
+                display: true
+                direction: down
+            callout:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: 微信支付
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: 支付宝
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              shortcutCommand:
+                openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
             lightModeStyleName: hotkeys_light
@@ -1679,7 +1801,7 @@ keyboards:
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            label: 󰄼
+            label: 󰬧
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -2123,6 +2245,46 @@ keyboards:
           - action:
               shortcutCommand:
                 openURL:
+                  url: surge:///toggle
+            label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              character:
+                char: ""
+            width: available
+            label: 󱇚
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: " "
+                display: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: " "
+                display: true
+                direction: down
+            callout:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: 微信支付
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: 支付宝
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              shortcutCommand:
+                openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
             lightModeStyleName: hotkeys_light
@@ -2150,7 +2312,7 @@ keyboards:
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            label: 󰄼
+            label: 󰬧
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -3033,6 +3195,46 @@ keyboards:
           - action:
               shortcutCommand:
                 openURL:
+                  url: surge:///toggle
+            label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              character:
+                char: ""
+            width: available
+            label: 󱇚
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: " "
+                display: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: " "
+                display: true
+                direction: down
+            callout:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: 微信支付
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: 支付宝
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              shortcutCommand:
+                openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
             lightModeStyleName: hotkeys_light
@@ -3060,7 +3262,7 @@ keyboards:
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            label: 󰄼
+            label: 󰬧
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
@@ -3337,6 +3539,46 @@ keyboards:
           - action:
               shortcutCommand:
                 openURL:
+                  url: surge:///toggle
+            label: 
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              character:
+                char: ""
+            width: available
+            label: 󱇚
+            swipe:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: " "
+                display: true
+                direction: up
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: " "
+                display: true
+                direction: down
+            callout:
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: weixin://scanqrcode
+                label: 微信支付
+              - action:
+                  shortcutCommand:
+                    openURL:
+                      url: alipays://platformapi/startapp?saId=10000007
+                label: 支付宝
+            lightModeStyleName: hotkeys_light
+            darkModeStyleName: hotkeys
+          - action:
+              shortcutCommand:
+                openURL:
                   url: bilibili://search?keyword=#pasteboardContent
             label: 
             lightModeStyleName: hotkeys_light
@@ -3364,7 +3606,7 @@ keyboards:
             darkModeStyleName: hotkeys
           - action:
               shortcutCommand: "#关闭键盘"
-            label: 󰄼
+            label: 󰬧
             swipe:
               - action:
                   shortcutCommand: "#关闭键盘"
