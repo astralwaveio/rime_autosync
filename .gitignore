@@ -8,6 +8,7 @@ Desktop.ini
 installation.yaml
 user.yaml
 /*custom*.yaml
+/lua/easy_en.lua
 
 # 用户词库和数据目录
 *.userdb/
