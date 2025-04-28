@@ -4,7 +4,7 @@
 #兼容词库，对于多字词汇两种读音的场景，手动维护到本表以及一些其他的杂项
 ---
 name: compatible
-version: "2025-04-27 22:19"
+version: "2025-04-28 20:04"
 sort: by_weight
 ...
 攒个	cuán gè	391
@@ -18,6 +18,7 @@ sort: by_weight
 调回来	tiáo huí lái	187
 调回了	tiáo huí le	151
 调回去	tiáo huí qù	137
+哀乐	āi lè	411
 炸锅	zhá guō	465
 调回	tiáo huí	513
 掉色	diào sè	552
