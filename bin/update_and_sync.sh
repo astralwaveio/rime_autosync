@@ -170,7 +170,7 @@ ICLOUD_DIR="$HOME/Library/Mobile Documents/iCloud~dev~fuxiao~app~hamsterapp/Docu
 
 # 定义排除列表
 EXCLUDE_LIST=(
-    '.git/' '.github/' 'build/' 'sync/' 'bin/' 'custom/' 'zc.userdb/' 'lua/tips.userdb/'
+    '.git/' '.github/' 'build/' '.vscode/' 'sync/' 'bin/' 'custom/' 'zc.userdb/' 'lua/tips.userdb/'
     '*.userdb/' 'zc.userdb*' 'custom_phrase.txt' '*.userdb.txt' 'user.yaml' '.gitignore'
     'installation.yaml' '.DS_Store' '*.bin' '*.table.bin' '*.txt.bin' 'DELETED_*'
 )

@@ -50,7 +50,7 @@ wanxiang-lts-zh-hans.gram
 *.sublime-*
 
 # easy en
-easy_en.dict.yaml
-easy_en.schema.yaml
-easy_en.yaml
-/luaa/easy_en.lua
+/easy_en.dict.yaml
+/easy_en.schema.yaml
+/easy_en.yaml
+/lua/easy_en.lua
