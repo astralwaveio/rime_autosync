@@ -10,10 +10,12 @@ patch:
     style/label_font_point: 14
     style/comment_font_point: 13
     style/horizontal: false
-    style/label_format: '%s. '
-    style/font_face: '霞鹜文楷等宽, Segoe UI Emoji, MiSans L3, 思源黑体, SF Pro, Noto Color Emoji'
-    style/label_font_face: '霞鹜文楷等宽'
-    style/comment_font_face: '霞鹜文楷等宽, MiSans L3' # 注释字体
+    style/label_format: "%s. "
+    style/font_face:
+        "霞鹜文楷等宽, Segoe UI Emoji, MiSans L3, 思源黑体, SF Pro, Noto Color
+        Emoji"
+    style/label_font_face: "霞鹜文楷等宽"
+    style/comment_font_face: "霞鹜文楷等宽, MiSans L3" # 注释字体
     layout/style/type/+: vertical
     layout/style/corner_radius: 2
     layout/style/hilited_corner_radius: 4
@@ -32,8 +34,8 @@ patch:
     preset_color_schemes/+:
         # 以下是一个配色方案示例
         nord: # 在 `style/color_schema` 指定的配色方案值
-            name: '远山／Nord' # 方案设置中显示的配色名称
-            author: Mirtle # 配色作者名称
+            name: "远山／Nord" # 方案设置中显示的配色名称
+            author: Astral Wave
             color_format: rgba # 颜色格式：argb（0xaarrggbb）；rgba（0xrrggbbaa）；abgr（0xaabbggrr 默认）
             # 默认配色
             text_color: 0x2E3440 # 文字
@@ -65,8 +67,8 @@ patch:
 
         # 修改自鼠须管配色方案
         purity_of_form_custom:
-            name: '純粹的形式／Purity of Form Custom'
-            author: 雨過之後、佛振
+            name: "純粹的形式／Purity of Form Custom"
+            author: Astral Wave
             text_color: 0x808080
             back_color: 0x545554
             label_color: 0xBBBBBB
@@ -83,7 +85,7 @@ patch:
 
         luna:
             name: 明月／Luna
-            author: 佛振 <chen.sst@gmail.com>
+            author: Astral Wave
             text_color: 0x000000
             back_color: 0xffffff
             border_color: 0xcccccc
@@ -93,7 +95,7 @@ patch:
             hilited_candidate_back_color: 0x000000
 
         NewWin11Dark:
-            name: '新Win11暗色 / NewWin11Dark'
+            name: "新Win11暗色 / NewWin11Dark"
             text_color: 0xf9f9f9
             label_color: 0xf9f9f9
             back_color: 0x2C2C2C
@@ -113,9 +115,9 @@ patch:
 
         clean_white:
             name: 简约白／Clean White
-            author: Chongyu Zhu <lembacon@gmail.com>, based on 搜狗「简约白」
+            author: Astral Wave
             horizontal: true
-            candidate_format: '%c %@'
+            candidate_format: "%c %@"
             corner_radius: 6
             border_height: 6
             border_width: 6
@@ -150,7 +152,7 @@ patch:
         glassEdge:
             name: 玻璃边／glassEdge
             color_format: rgba
-            author: light
+            author: Astral Wave
             text_color: 0xe6e6e6ff # 默认文字配色   接近于白色
             back_color: 0x292929ff # 默认背景配色   接近于黑色
             border_color: 0xffffff80 # 默认边框配色  25%透明

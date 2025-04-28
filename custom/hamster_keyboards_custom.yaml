@@ -1,6 +1,6 @@
 colorSchemas:
-  - schemaName: iOS - Dark
-    name: iOS - Dark
+  - schemaName: 暗夜●月
+    name: 暗夜●月
     author: Astral Wave
     back_color: "0x55282828"
     button_back_color: "0x6A6A6A"
@@ -29,8 +29,8 @@ colorSchemas:
     hilited_callout_back_color: "0xF57935"
     hilited_callout_foreground_color: "0xFFFFFF"
     action_callout_back_color: "0xF57935"
-  - schemaName: iOS - Light
-    name: iOS - Light
+  - schemaName: 沐白●日
+    name: 沐白●日
     author: Astral Wave
     back_color: "0x01D9D3D0"
     button_back_color: "0xFFFFFF"
@@ -59,8 +59,9 @@ colorSchemas:
     hilited_callout_back_color: "0xF57935"
     hilited_callout_foreground_color: "0x000000"
     action_callout_back_color: "0xF57935"
+
 keyboards:
-  - name: iOS-中文
+  - name: 🀄中文
     isPrimary: true
     rows:
       - keys:
@@ -1028,13 +1029,13 @@ keyboards:
           landscape: 45
       - keys:
           - action:
-              keyboardType: iOS-中文数字
+              keyboardType: 🀄中文数字
             width:
               percentage: 0.11
             label: "123"
             swipe:
               - action:
-                  keyboardType: iOS-中文数字符号
+                  keyboardType: 🀄中文数字符号
                 label: 符
                 display: true
                 processByRIME: true
@@ -1179,7 +1180,7 @@ keyboards:
                     char: .ai
                 label: .ai
             lightModeStyleName: shift_delete_light
-            darkModeStyleName: shift_delete            
+            darkModeStyleName: shift_delete
           - action: enter
             width:
               percentage: 0.22
@@ -1413,7 +1414,7 @@ keyboards:
         shadowSize: 1
         fontSize: 12
         swipeFontSize: 7
-  - name: iOS-中文数字
+  - name: 🀄中文数字
     isPrimary: false
     rows:
       - keys:
@@ -1693,7 +1694,7 @@ keyboards:
           landscape: 45
       - keys:
           - action:
-              keyboardType: iOS-中文
+              keyboardType: 🀄中文
             width: available
             label: 󱞱
             lightModeStyleName: shift_delete_light
@@ -1770,7 +1771,7 @@ keyboards:
       fjkeys: *a8
       space_light: *a9
       space: *a10
-  - name: iOS-中文数字符号
+  - name: 🀄中文数字符号
     isPrimary: false
     rows:
       - keys:
@@ -2190,7 +2191,7 @@ keyboards:
           landscape: 45
       - keys:
           - action:
-              keyboardType: iOS-中文数字
+              keyboardType: 🀄中文数字
             width:
               percentage: 0.11
             label: "123"
@@ -3156,7 +3157,7 @@ keyboards:
             lightModeStyleName: shift_delete_light
             darkModeStyleName: shift_delete
           - action:
-              keyboardType: iOS-中文
+              keyboardType: 🀄中文
             width:
               percentage: 0.22
             label: 英
@@ -4052,7 +4053,7 @@ keyboards:
             lightModeStyleName: shift_delete_light
             darkModeStyleName: shift_delete
           - action:
-              keyboardType: iOS-中文
+              keyboardType: 🀄中文
             width:
               percentage: 0.22
             label: 英
