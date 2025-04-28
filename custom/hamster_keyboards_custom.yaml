@@ -1178,7 +1178,7 @@ keyboards:
           - action: enter
             width:
               percentage: 0.22
-            label: 󰌑
+            label: 
             swipe:
               - action:
                   shortcutCommand: "#换行"
@@ -1735,7 +1735,7 @@ keyboards:
           - action: enter
             width:
               percentage: 0.16
-            label: 󰌑
+            label: 
             swipe:
               - action:
                   shortcutCommand: "#换行"
@@ -2063,7 +2063,7 @@ keyboards:
               keyboardType: classifySymbolic
             width:
               percentage: 0.1
-            label: 更多
+            label: 
             swipe:
               - action: tab
                 label:
@@ -2276,7 +2276,7 @@ keyboards:
           - action: enter
             width:
               percentage: 0.22
-            label: 󰌑
+            label: 
             swipe:
               - action:
                   shortcutCommand: "#换行"
@@ -3254,7 +3254,7 @@ keyboards:
           - action: enter
             width:
               percentage: 0.22
-            label: 󰌑
+            label: 
             swipe:
               - action:
                   shortcutCommand: "#换行"
@@ -3942,7 +3942,7 @@ keyboards:
               keyboardType: classifySymbolic
             width:
               percentage: 0.1
-            label: 更多
+            label: 
             swipe:
               - action: tab
                 label:
