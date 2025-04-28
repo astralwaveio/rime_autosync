@@ -1086,11 +1086,11 @@ keyboards:
               keyboardType: 🇺🇸 English
             width:
               percentage: 0.11
-            label: 拼音
+            label: 中
             swipe:
               - action:
                   shortcutCommand: "#三选上屏"
-                label: English
+                label: En
                 display: true
                 processByRIME: true
                 direction: up
@@ -2195,12 +2195,12 @@ keyboards:
               keyboardType: 🇺🇸 English
             width:
               percentage: 0.11
-            label: 拼音
+            label: 中
             swipe:
               - action:
                   character:
                     char: ""
-                label: English
+                label: En
                 display: true
                 processByRIME: true
                 direction: up
@@ -3170,12 +3170,12 @@ keyboards:
               keyboardType: 🀄 中文
             width:
               percentage: 0.11
-            label: English
+            label: En
             swipe:
               - action:
                   character:
                     char: ""
-                label: 拼音
+                label: 中
                 display: true
                 processByRIME: true
                 direction: up
@@ -4082,12 +4082,12 @@ keyboards:
               keyboardType: 🀄 中文
             width:
               percentage: 0.11
-            label: English
+            label: En
             swipe:
               - action:
                   character:
                     char: ""
-                label: 拼音
+                label: 中
                 display: true
                 processByRIME: true
                 direction: up
