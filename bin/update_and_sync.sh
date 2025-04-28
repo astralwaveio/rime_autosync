@@ -62,19 +62,11 @@ git status --porcelain custom/ bin/ | grep -q . || {
 
 if [ "${goto_second}" != "1" ]; then
     # 3. 添加变更到暂存区
-    print_blue "添加变更到Git..."
-    git add custom/ || {
-        print_red "无法添加custom目录的变更"
+    print_blue "添加变更到Git（含所有新文件）..."
+    git add -A || {
+        print_red "无法添加变更"
         exit 1
     }
-    git add bin/ || { print_yellow "警告: 无法添加bin目录的变更"; }
-
-    # 同时添加根目录中非忽略的文件
-    for file in $(find custom -type f -not -path "*/\.*" | sed 's|^custom/||'); do
-        if [ -f "$file" ] && ! [[ "$file" == *custom*.yaml ]]; then
-            git add "$file" 2>/dev/null || true
-        fi
-    done
 
     # 4. 提交变更
     print_blue "提交变更: $COMMIT_MSG"
