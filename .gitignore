@@ -8,7 +8,6 @@ Desktop.ini
 installation.yaml
 user.yaml
 /*custom*.yaml
-/lua/easy_en.lua
 
 # 用户词库和数据目录
 *.userdb/
@@ -49,3 +48,9 @@ wanxiang-lts-zh-hans.gram
 .idea/
 .vscode/
 *.sublime-*
+
+# easy en
+easy_en.dict.yaml
+easy_en.schema.yaml
+easy_en.yaml
+/luaa/easy_en.lua

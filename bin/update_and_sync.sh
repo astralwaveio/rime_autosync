@@ -148,6 +148,7 @@ if [ -d "custom" ]; then
     cp -f custom/* . 2>/dev/null || {
         print_blue "复制文件时出现一些警告 (这通常是正常的)"
     }
+    cp -fv custom/lua/* lua/
     print_green "自定义配置文件已更新"
 else
     print_red "custom目录不存在"

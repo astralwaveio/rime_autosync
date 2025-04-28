@@ -67,9 +67,11 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                openURL:
-                  url: surge:///toggle
+                sendKeys:
+                  keys: Control+comma
             label: 🚀
+            display: true
+            processByRIME: true
             swipe:
               - action:
                   shortcutCommand:
@@ -1414,9 +1416,11 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                openURL:
-                  url: surge:///toggle
+                sendKeys:
+                  keys: Control+comma
             label: 🚀
+            display: true
+            processByRIME: true
             swipe:
               - action:
                   shortcutCommand:
@@ -1771,9 +1775,11 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                openURL:
-                  url: surge:///toggle
+                sendKeys:
+                  keys: Control+comma
             label: 🚀
+            display: true
+            processByRIME: true
             swipe:
               - action:
                   shortcutCommand:
@@ -2312,9 +2318,11 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                openURL:
-                  url: surge:///toggle
+                sendKeys:
+                  keys: Control+comma
             label: 🚀
+            display: true
+            processByRIME: true
             swipe:
               - action:
                   shortcutCommand:
@@ -3292,9 +3300,11 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                openURL:
-                  url: surge:///toggle
+                sendKeys:
+                  keys: Control+comma
             label: 🚀
+            display: true
+            processByRIME: true
             swipe:
               - action:
                   shortcutCommand:
@@ -3650,9 +3660,11 @@ keyboards:
       - keys:
           - action:
               shortcutCommand:
-                openURL:
-                  url: surge:///toggle
+                sendKeys:
+                  keys: Control+comma
             label: 🚀
+            display: true
+            processByRIME: true
             swipe:
               - action:
                   shortcutCommand:
