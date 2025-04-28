@@ -6,9 +6,9 @@ patch:
     __include: hamster_keyboards_custom:/colorSchemas
 
   # 键盘基本设置
-  keyboard/useKeyboardType: "🀄中文" # 键盘布局
-  keyboard/useColorSchemaForLight: "沐白●日" # 亮色主题
-  keyboard/useColorSchemaForDark: "暗夜●月" # 暗色主题
+  keyboard/useKeyboardType: "🀄 中文" # 键盘布局
+  keyboard/useColorSchemaForLight: "☀️ 沐白 · 日" # 亮色主题
+  keyboard/useColorSchemaForDark: "🌙 暗夜 · 月" # 暗色主题
   keyboard/enableColorSchema: true
 
   # 键盘布局和显示相关
