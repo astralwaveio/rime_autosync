@@ -166,7 +166,7 @@ keyboards:
                 char: q
             width:
               percentage: 0.1
-            label: Q
+            label: q
             swipe:
               - action:
                   character:
@@ -196,7 +196,7 @@ keyboards:
                 char: w
             width:
               percentage: 0.1
-            label: W
+            label: w
             swipe:
               - action:
                   character:
@@ -226,7 +226,7 @@ keyboards:
                 char: e
             width:
               percentage: 0.1
-            label: E
+            label: e
             swipe:
               - action:
                   character:
@@ -256,7 +256,7 @@ keyboards:
                 char: r
             width:
               percentage: 0.1
-            label: R
+            label: r
             swipe:
               - action:
                   character:
@@ -286,7 +286,7 @@ keyboards:
                 char: t
             width:
               percentage: 0.1
-            label: T
+            label: t
             swipe:
               - action:
                   character:
@@ -316,7 +316,7 @@ keyboards:
                 char: y
             width:
               percentage: 0.1
-            label: Y
+            label: y
             swipe:
               - action:
                   character:
@@ -346,7 +346,7 @@ keyboards:
                 char: u
             width:
               percentage: 0.1
-            label: U
+            label: u
             swipe:
               - action:
                   character:
@@ -376,7 +376,7 @@ keyboards:
                 char: i
             width:
               percentage: 0.1
-            label: I
+            label: i
             swipe:
               - action:
                   character:
@@ -406,7 +406,7 @@ keyboards:
                 char: o
             width:
               percentage: 0.1
-            label: O
+            label: o
             swipe:
               - action:
                   character:
@@ -438,7 +438,7 @@ keyboards:
               portrait: available
               landscape:
                 percentage: 0.1
-            label: P
+            label: p
             swipe:
               - action:
                   character:
@@ -480,7 +480,7 @@ keyboards:
                 char: a
             width:
               percentage: 0.1
-            label: A
+            label: a
             swipe:
               - action:
                   character:
@@ -508,7 +508,7 @@ keyboards:
                 char: s
             width:
               percentage: 0.1
-            label: S
+            label: s
             swipe:
               - action:
                   character:
@@ -538,7 +538,7 @@ keyboards:
                 char: d
             width:
               percentage: 0.1
-            label: D
+            label: d
             swipe:
               - action:
                   character:
@@ -568,7 +568,7 @@ keyboards:
                 char: f
             width:
               percentage: 0.1
-            label: F
+            label: f
             swipe:
               - action:
                   character:
@@ -596,7 +596,7 @@ keyboards:
                 char: g
             width:
               percentage: 0.1
-            label: G
+            label: g
             swipe:
               - action:
                   character:
@@ -626,7 +626,7 @@ keyboards:
                 char: h
             width:
               percentage: 0.1
-            label: H
+            label: h
             swipe:
               - action:
                   character:
@@ -656,7 +656,7 @@ keyboards:
                 char: j
             width:
               percentage: 0.1
-            label: J
+            label: j
             swipe:
               - action:
                   character:
@@ -677,7 +677,7 @@ keyboards:
                 char: k
             width:
               percentage: 0.1
-            label: K
+            label: k
             swipe:
               - action:
                   character:
@@ -706,7 +706,7 @@ keyboards:
                 char: l
             width:
               percentage: 0.1
-            label: L
+            label: l
             swipe:
               - action:
                   character:
@@ -780,7 +780,7 @@ keyboards:
                 char: z
             width:
               percentage: 0.1
-            label: Z
+            label: z
             swipe:
               - action:
                   character:
@@ -809,7 +809,7 @@ keyboards:
                 char: x
             width:
               percentage: 0.1
-            label: X
+            label: x
             swipe:
               - action:
                   character:
@@ -837,7 +837,7 @@ keyboards:
                 char: c
             width:
               percentage: 0.1
-            label: C
+            label: c
             swipe:
               - action:
                   character:
@@ -868,7 +868,7 @@ keyboards:
                 char: v
             width:
               percentage: 0.1
-            label: V
+            label: v
             swipe:
               - action:
                   character:
@@ -898,7 +898,7 @@ keyboards:
                 char: b
             width:
               percentage: 0.1
-            label: B
+            label: b
             swipe:
               - action:
                   character:
@@ -927,7 +927,7 @@ keyboards:
                 char: n
             width:
               percentage: 0.1
-            label: N
+            label: n
             swipe:
               - action:
                   character:
@@ -957,7 +957,7 @@ keyboards:
                 char: m
             width:
               percentage: 0.1
-            label: M
+            label: m
             swipe:
               - action:
                   character:
