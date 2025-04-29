@@ -30,21 +30,16 @@ patch:
   keyboard/pairsOfSymbols: []
   keyboard/showUppercasedCharacterOnChineseKeyboard: true
   keyboard/swipeLabelUpAndDownIrregularLayout: false # 不规则显示划动文本
-  keyboard/swipeLabelUpAndDownLayout: true # 划动文本上下显示
+  keyboard/swipeLabelUpAndDownLayout: false # 划动文本上下显示
   keyboard/upSwipeOnLeft: true # 上划显示位置-左上侧
 
   # 字体设置
   keyboard/style/fontFace:
-    - { url: "Arial-Bold.ttf" } # 英文字体
-    - { url: "Segoe UI Emoji.ttf" } # 表情符号
-    - { url: "SymbolsNerdFontMono-Regular.ttf" } # 符号字体
-    - { url: "LXGWWenKaiGBScreen.ttf" } # 常用中文
-    - { url: "98WB-0.otf" } # 中文增补
-    - { url: "98WB-1.otf" } # 中文增补
-    - { url: "98WB-2.otf" } # 中文增补
-    - { url: "98WB-3.otf" } # 中文增补
-    - { url: "98WB-U.otf" } # 中文增补
-    - { url: "98WB-V.otf" } # 中文增补
+    - { url: "SF-Pro.ttf" }
+    - { url: "SF-Pro-Display-Regular.otf" }
+    - { url: "SymbolsNerdFontMono-Regular.ttf" }
+    - { url: "Segoe UI Emoji.ttf" }
+    - { url: "NotoColorEmoji-Regular.ttf" }
 
   # 交互行为设置
   keyboard/enableChineseWordSegmentationByShift: false # Shift中文分词
@@ -56,27 +51,27 @@ patch:
   keyboard/lockShiftState: false # Shift状态锁定
   keyboard/spaceLeftButtonProcessByRIME: true
   keyboard/spaceRightButtonProcessByRIME: true
-  swipe/spaceDragSensitivity: 15 # 移动光标灵敏度
+  swipe/spaceDragSensitivity: 18 # 移动光标灵敏度
 
   # 工具栏（候选栏）设置
   toolbar/enableToolbar: true # 启用候选工具栏
   toolbar/candidateCommentFontSize: 11
   toolbar/candidateOnTop: true
-  toolbar/candidateTextFontSize: 18
+  toolbar/candidateTextFontSize: 17
   toolbar/codingAreaFontSize: 12
-  toolbar/displayAppIconButton: true # 显示应用图标-R
+  toolbar/displayAppIconButton: false # 显示应用图标-R
   toolbar/displayCommentOfCandidate: true # 显示候选Comment
   toolbar/displayIndexOfCandidate: false # 显示候选项序号
-  toolbar/displayKeyboardDismissButton: true # 显示键盘收起图标
-  toolbar/heightOfCodingArea: 15
-  toolbar/heightOfToolbar: 40
+  toolbar/displayKeyboardDismissButton: false # 显示键盘收起图标
+  toolbar/heightOfCodingArea: 16
+  toolbar/heightOfToolbar: 48
   toolbar/swipePaging: true # 划动分页模式
 
   # 声音与震动
   keyboard/enableHapticFeedback: true
   keyboard/enableKeySounds: false
   keyboard/hapticFeedbackIntensity: 1
-  keyboard/hapticIntensity: 1.000
+  keyboard/hapticIntensity: 0.7
 
   # Rime设置
   rime/overrideDictFiles: false
