@@ -16,7 +16,7 @@ patch:
   keyboard/displayButtonBubbles: true # 显示按键气泡
   keyboard/displayClassifySymbolButton: false
   keyboard/displayCommaButton: true
-  keyboard/displayInputMethodsSwitchKey: false # 显示系统输入法切换键
+  keyboard/displayInputMethodsSwitchKey: true # 显示系统输入法切换键
   keyboard/displaySemicolonButton: false
   keyboard/displaySpaceLeftButton: false
   keyboard/displaySpaceRightButton: false
