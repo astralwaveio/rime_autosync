@@ -3161,13 +3161,13 @@ keyboards:
           landscape: 45
       - keys:
           - action:
-              keyboardType: 🇺🇸 English·Number
+              keyboardType: 🔢 English·Number
             width:
               percentage: 0.11
             label: "123"
             swipe:
               - action:
-                  keyboardType: 🇺🇸 English·Symbol
+                  keyboardType: 🔣 English·Symbol
                 label: 符
                 display: true
                 processByRIME: true
@@ -3294,7 +3294,7 @@ keyboards:
       cn_en: *a12
       space_light: *a9
       space: *a10
-  - name: 🇺🇸 English·Number
+  - name: 🔢 English·Number
     isPrimary: false
     rows:
       - keys:
@@ -3654,7 +3654,7 @@ keyboards:
       fjkeys: *a8
       space_light: *a9
       space: *a10
-  - name: 🇺🇸 English·Symbol
+  - name: 🔣 English·Symbol
     isPrimary: false
     rows:
       - keys:
@@ -4077,7 +4077,7 @@ keyboards:
           landscape: 45
       - keys:
           - action:
-              keyboardType: 🇺🇸 English·Number
+              keyboardType: 🔢 English·Number
             width:
               percentage: 0.11
             label: "123"
