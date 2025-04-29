@@ -19,7 +19,7 @@ patch:
     switches/@6/reset: 0
 
     # 方案名称（显示修改）
-    schema/name: 拼音
+    schema/name: 万象拼音
     # 图标设置
     schema/+:
         icon: 'icons/zhong.ico' # 中文模式图标路径
