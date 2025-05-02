@@ -72,7 +72,8 @@ engine:
     - lua_processor@*select_character           # 以词定字
     - lua_processor@*quick_symbol_text          #快符引导以及重复上屏
     - lua_processor@*super_tips*S               #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
-    - lua_processor@*super_sequence*P
+    - lua_processor@*super_sequence*P           #手动排序，高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
+    - lua_processor@*limit_repeated             #用于限制最大候选长度以及最大重复输入声母编码长度，避免性能异常
     - lua_processor@*userdb_sync_delete         #通过输入 /del 触发,用于清理自定义同步目录下txt用户词典里被标记c<0的词条
     - ascii_composer
     - recognizer
@@ -118,7 +119,7 @@ engine:
     - simplifier@emoji                              # Emoji
     - simplifier@traditionalize                     # 简繁切换
     - simplifier@chinese_english                    #中英翻译
-    - lua_filter@*search@wanxiang_radical           # 部件拆字辅码放在简繁转换之后
+    - lua_filter@*search@wanxiang_radical           #部件拆字辅码放在简繁转换之后
     - lua_filter@*super_tips*M                      #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
     - lua_filter@*super_comment                     #超级注释模块，支持错词提示、辅助码显示，部件组字读音注释，支持个性化配置和关闭相应的功能，详情搜索super_comment进行详细配置
     - uniquifier                                    # 去重
@@ -196,7 +197,7 @@ translator:
   enable_completion: true  # 启用候选词补全
 #  user_dict: zrm.userdb  # 用户词典的文件名称
 #  db_class: tabledb  #开启后就不会产生wanxiang.userdb这样的文件夹，会直接输出文本wanxiang.txt同时无法使用同步能力
-  enable_user_dict: false # 是否开启自动调频
+  enable_user_dict: true # 是否开启自动调频
   enable_encoder: true
   enable_sentence: false
   enable_correction: false #是否开启自动纠错
@@ -204,8 +205,12 @@ translator:
   initial_quality: 3       # 初始质量拼音的权重应该比英文大
   spelling_hints: 30       # 将注释以词典字符串形式完全暴露，通过super_comment.lua完全接管，灵活配置。
   always_show_comments: true    # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供super_comment.lua做判断用。
-  comment_format: {comment}  #将注释以词典字符串形式完全暴露，通过pro_comment_preedit_format.lua完全接管，灵活配置。
-  preedit_format:     #影响到输入框的显示和“Shift+回车”上屏的字符，交给pro_comment_preedit_format处理
+  comment_format: {comment}  #将注释以词典字符串形式完全暴露，通过super_preedit.lua完全接管，灵活配置。
+  preedit_format:     #影响到输入框的显示和“Shift+回车”上屏的字符，交给super_preedit处理
+    - xform/7/1/
+    - xform/8/2/
+    - xform/9/3/
+    - xform/0/4/
   #disable_user_dict_for_patterns:
   #  - "^[a-z]{1,6}"    #如果你开启调频，需要一并考虑这个配置，基本的6码3字不调频
 
@@ -381,7 +386,7 @@ speller:
 #  auto_select: true
 #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}
   # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`;/
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA7890`;/
   # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
   delimiter: " '"  # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
@@ -391,7 +396,7 @@ speller:
       - set_gongjian_mohu    #共键输入或者模糊音选择性开启
 
 
-全拼: 
+全拼(备份): 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/^ng$/en/
@@ -401,7 +406,43 @@ speller:
     - derive/^([jqx])v$/$1u/
     - abbrev/^([qwrtypsdfghjklzxcbnm]).+$/$1/  #不携带元音的声母派生出首字母简码来
     - abbrev/^([aoe])([ioun])$/$1/             #携带两个字符的元音首字母派生出简码来
-自然码: 
+全拼: 
+  __append:
+    - xform/^([a-z]+)$/$1④/
+    - xform/^(.*)ā(.*)$/$1a$2①/
+    - xform/^(.*)á(.*)$/$1a$2②/
+    - xform/^(.*)ǎ(.*)$/$1a$2③/
+    - xform/^(.*)à(.*)$/$1a$2④/
+    - xform/^(.*)ō(.*)$/$1o$2①/
+    - xform/^(.*)ó(.*)$/$1o$2②/
+    - xform/^(.*)ǒ(.*)$/$1o$2③/
+    - xform/^(.*)ò(.*)$/$1o$2④/
+    - xform/^(.*)ē(.*)$/$1e$2①/
+    - xform/^(.*)é(.*)$/$1e$2②/
+    - xform/^(.*)ě(.*)$/$1e$2③/
+    - xform/^(.*)è(.*)$/$1e$2④/
+    - xform/^(.*)ī(.*)$/$1i$2①/
+    - xform/^(.*)í(.*)$/$1i$2②/
+    - xform/^(.*)ǐ(.*)$/$1i$2③/
+    - xform/^(.*)ì(.*)$/$1i$2④/
+    - xform/^(.*)ū(.*)$/$1u$2①/
+    - xform/^(.*)ú(.*)$/$1u$2②/
+    - xform/^(.*)ǔ(.*)$/$1u$2③/
+    - xform/^(.*)ù(.*)$/$1u$2④/
+    - xform/^(.*)ǖ(.*)$/$1v$2①/
+    - xform/^(.*)ǘ(.*)$/$1v$2②/
+    - xform/^(.*)ǚ(.*)$/$1v$2③/
+    - xform/^(.*)ǜ(.*)$/$1v$2④/
+    - xform/^(.*)ü(.*)$/$1v$2①/
+    - xlit/①②③④/7890
+    - derive/(.+)(\d)/$1/
+    - derive/([nl])ve(\d)/$1ue$2/                            #让üè兼容ue
+    - derive/^([jqx])v(\d)$/$1u$2/
+    - abbrev/^([qwrtypsdfghjklzxcbnm]).+$/$1/  #不携带元音的声母派生出首字母简码来
+    - abbrev/^([qwrtypsdfghjklzxcbnm]).+(\d)$/$1$2/  #不携带元音的声母派生出首字母简码来+数字声调
+    - abbrev/^([aoe])([ioun])(\d)$/$1/             #携带两个字符的元音首字母派生出简码来
+    - abbrev/^([aoe])([ioun])(\d)$/$1$3/       #携带两个字符的元音首字母派生出简码来+数字声调
+自然码(备份): 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/^ng$/eng/
@@ -436,6 +477,68 @@ speller:
     - xform/(.)ou$/$1Ⓑ/
     - xform/in$/Ⓝ/
     - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⓂⒿⒸⓀⓁⓏⓍⓋⒷⓃ/qwrtyuiopsdfghmjcklzxvbn/
+    #- abbrev/^([a-z]).+$/$1/   #简拼
+
+自然码: 
+  __append:
+    - xform/^([a-z]+)$/$1④/
+    - xform/^(.*)ā(.*)$/$1a$2①/
+    - xform/^(.*)á(.*)$/$1a$2②/
+    - xform/^(.*)ǎ(.*)$/$1a$2③/
+    - xform/^(.*)à(.*)$/$1a$2④/
+    - xform/^(.*)ō(.*)$/$1o$2①/
+    - xform/^(.*)ó(.*)$/$1o$2②/
+    - xform/^(.*)ǒ(.*)$/$1o$2③/
+    - xform/^(.*)ò(.*)$/$1o$2④/
+    - xform/^(.*)ē(.*)$/$1e$2①/
+    - xform/^(.*)é(.*)$/$1e$2②/
+    - xform/^(.*)ě(.*)$/$1e$2③/
+    - xform/^(.*)è(.*)$/$1e$2④/
+    - xform/^(.*)ī(.*)$/$1i$2①/
+    - xform/^(.*)í(.*)$/$1i$2②/
+    - xform/^(.*)ǐ(.*)$/$1i$2③/
+    - xform/^(.*)ì(.*)$/$1i$2④/
+    - xform/^(.*)ū(.*)$/$1u$2①/
+    - xform/^(.*)ú(.*)$/$1u$2②/
+    - xform/^(.*)ǔ(.*)$/$1u$2③/
+    - xform/^(.*)ù(.*)$/$1u$2④/
+    - xform/^(.*)ǖ(.*)$/$1v$2①/
+    - xform/^(.*)ǘ(.*)$/$1v$2②/
+    - xform/^(.*)ǚ(.*)$/$1v$2③/
+    - xform/^(.*)ǜ(.*)$/$1v$2④/
+    - xform/^(.*)ü(.*)$/$1v$2①/
+    - xlit/①②③④/7890
+    - xform/^ng(\d)$/eng$1/
+    - derive/^([jqxy])u(\d)$/$1v$2/
+    - derive/^([aoe])([ioun])(\d)$/$1$1$2$3/
+    - xform/^([aoe])(ng)?(\d)$/$1$1$2$3/
+    - xform/iu(\d)$/Ⓠ$1/
+    - xform/[iu]a(\d)$/Ⓦ$1/
+    - xform/[uv]an(\d)$/Ⓡ$1/
+    - xform/[uv]e(\d)$/Ⓣ$1/
+    - xform/ing|uai(\d)$/Ⓨ$1/
+    - xform/^sh/Ⓤ/
+    - xform/^ch/Ⓘ/
+    - xform/^zh/Ⓥ/
+    - xform/uo(\d)$/Ⓞ$1/
+    - xform/[uv]n(\d)$/Ⓟ$1/
+    - xform/(.)i?ong(\d)$/$1Ⓢ$2/
+    - xform/[iu]ang(\d)$/Ⓓ$1/
+    - xform/(.)en(\d)$/$1Ⓕ$2/
+    - xform/(.)eng(\d)$/$1Ⓖ$2/
+    - xform/(.)ang(\d)$/$1Ⓗ$2/
+    - xform/ian(\d)$/Ⓜ$1/
+    - xform/(.)an(\d)$/$1Ⓙ$2/
+    - xform/iao(\d)$/Ⓒ$1/
+    - xform/(.)ao(\d)$/$1Ⓚ$2/
+    - xform/(.)ai(\d)$/$1Ⓛ$2/
+    - xform/(.)ei(\d)$/$1Ⓩ$2/
+    - xform/ie(\d)$/Ⓧ$1/
+    - xform/ui(\d)$/Ⓥ$1/
+    - xform/(.)ou(\d)$/$1Ⓑ$2/
+    - xform/in(\d)$/Ⓝ$1/
+    - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⓂⒿⒸⓀⓁⓏⓍⓋⒷⓃ/qwrtyuiopsdfghmjcklzxvbn/
+    - derive/^(..)(\d)$/$1/
     #- abbrev/^([a-z]).+$/$1/   #简拼
 
 自然龙:      #原作者项目地址： https://github.com/rimeinn/rime-zrlong
@@ -501,7 +604,7 @@ speller:
     - xform/^(.)(āo|ao|iè)$/$1Q/
     - xlit/QWERTYUIOPASDFGHMJCKLZXVBN/qwertyuiopasdfghmjcklzxvbn/
 
-小鹤双拼: 
+小鹤双拼(备份): 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/^ng$/eng/
@@ -536,6 +639,70 @@ speller:
     - xform/ui$/Ⓥ/
     - xform/in$/Ⓑ/
     - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/
+    #- abbrev/^([a-z]).+$/$1/   #简拼
+
+小鹤双拼: 
+  __append:
+    - xform/^([a-z]+)$/$1④/
+    - xform/^(.*)ā(.*)$/$1a$2①/
+    - xform/^(.*)á(.*)$/$1a$2②/
+    - xform/^(.*)ǎ(.*)$/$1a$2③/
+    - xform/^(.*)à(.*)$/$1a$2④/
+    - xform/^(.*)ō(.*)$/$1o$2①/
+    - xform/^(.*)ó(.*)$/$1o$2②/
+    - xform/^(.*)ǒ(.*)$/$1o$2③/
+    - xform/^(.*)ò(.*)$/$1o$2④/
+    - xform/^(.*)ē(.*)$/$1e$2①/
+    - xform/^(.*)é(.*)$/$1e$2②/
+    - xform/^(.*)ě(.*)$/$1e$2③/
+    - xform/^(.*)è(.*)$/$1e$2④/
+    - xform/^(.*)ī(.*)$/$1i$2①/
+    - xform/^(.*)í(.*)$/$1i$2②/
+    - xform/^(.*)ǐ(.*)$/$1i$2③/
+    - xform/^(.*)ì(.*)$/$1i$2④/
+    - xform/^(.*)ū(.*)$/$1u$2①/
+    - xform/^(.*)ú(.*)$/$1u$2②/
+    - xform/^(.*)ǔ(.*)$/$1u$2③/
+    - xform/^(.*)ù(.*)$/$1u$2④/
+    - xform/^(.*)ǖ(.*)$/$1v$2①/
+    - xform/^(.*)ǘ(.*)$/$1v$2②/
+    - xform/^(.*)ǚ(.*)$/$1v$2③/
+    - xform/^(.*)ǜ(.*)$/$1v$2④/
+    - xform/^(.*)ü(.*)$/$1v$2①/
+    - xlit/①②③④/7890
+    - xform/^ng(\d)$/eng$1/
+    - xform/(ńg|ňg|ǹg)(\d)/eng$2/
+    - xform/(ń|ň|ǹ)(\d)/en$2/
+    - derive/^([jqxy])u(\d)$/$1v$2/
+    - derive/^([aoe])([ioun])(\d)$/$1$1$2$3/
+    - xform/^([aoe])(ng)?(\d)$/$1$1$2$3/
+    - xform/iu(\d)$/Ⓠ$1/
+    - xform/(.)ei(\d)$/$1Ⓦ$2/
+    - xform/uan(\d)$/Ⓡ$1/
+    - xform/[uv]e(\d)$/Ⓣ$1/
+    - xform/un(\d)$/Ⓨ$1/
+    - xform/^sh/Ⓤ/
+    - xform/^ch/Ⓘ/
+    - xform/^zh/Ⓥ/
+    - xform/uo(\d)$/Ⓞ$1/
+    - xform/ie(\d)$/Ⓟ$1/
+    - xform/(.)i?ong(\d)$/$1Ⓢ$2/
+    - xform/ing|uai(\d)$/Ⓚ$1/
+    - xform/(.)ai(\d)$/$1Ⓓ$2/
+    - xform/(.)en(\d)$/$1Ⓕ$2/
+    - xform/(.)eng(\d)$/$1Ⓖ$2/
+    - xform/[iu]ang(\d)$/Ⓛ$1/
+    - xform/(.)ang(\d)$/$1Ⓗ$2/
+    - xform/ian(\d)$/Ⓜ$1/
+    - xform/(.)an(\d)$/$1Ⓙ$2/
+    - xform/(.)ou(\d)$/$1Ⓩ$2/
+    - xform/[iu]a(\d)$/Ⓧ$1/
+    - xform/iao(\d)$/Ⓝ$1/
+    - xform/(.)ao(\d)$/$1Ⓒ$2/
+    - xform/ui(\d)$/Ⓥ$1/
+    - xform/in(\d)$/Ⓑ$1/
+    - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/
+    - derive/^(..)(\d)$/$1/
     #- abbrev/^([a-z]).+$/$1/   #简拼
 搜狗双拼: 
   __append:
@@ -789,6 +956,11 @@ user_dict_set:
   enable_sentence: false
   spelling_hints: 100
   comment_format: {comment}
+  preedit_format:
+    - xform/7/1/
+    - xform/8/2/
+    - xform/9/3/
+    - xform/0/4/
   enable_user_dict: true
   user_dict: zc
 
@@ -804,7 +976,11 @@ add_user_dict:
   enable_sentence: true #  是否开启自动造句
   enable_user_dict: true 
   encode_commit_history: false # 是否对已上屛词自动成词〔仅 table_translator 有效〕
-  preedit_format: {comment}   
+  preedit_format:
+    - xform/7/1/
+    - xform/8/2/
+    - xform/9/3/
+    - xform/0/4/
   comment_format:
   prefix: "ac"
   tips: "〔自造词〕"
