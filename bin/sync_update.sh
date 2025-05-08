@@ -235,6 +235,7 @@ if [ $sync_result -eq 0 ]; then
     echo -e "${GREEN}同步完成!${NC}"
     echo -e "${GREEN}成功将Rime配置同步到iCloud${NC}"
     echo -e "${YELLOW}注意：请等待iCloud将文件上传到云端，这可能需要一些时间${NC}"
+    cp -f "${LOCAL_DIR}/wanxiang-lts-zh-hans.gram" "${ICLOUD_DIR}/wanxiang-lts-zh-hans.gram"
     echo -e "${GREEN}======== 同步操作结束 ========${NC}"
 else
     echo -e "${RED}同步失败，错误码: $sync_result${NC}"
