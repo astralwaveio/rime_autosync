@@ -1,0 +1,39 @@
+name: 清理提交历史
+
+on:
+    workflow_dispatch:
+
+jobs:
+    clean-history:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 检出最新代码
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 1
+
+            - name: 配置GIT用户信息
+              run: |
+                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                  git config --global user.name "GitHub Actions Bot"
+
+            - name: 创建仅包含最新代码的分支
+              run: |
+                  branch=$(git symbolic-ref --short HEAD)
+                  echo "当前分支：$branch"
+                  git checkout --orphan temp_branch
+                  echo "已创建无历史的临时分支temp_branch"
+                  git reset --hard
+                  git add .
+                  git commit -m "chore: 通过GitHub Actions定期清空历史，仅保留最新提交"
+                  git branch -M $branch
+                  echo "重命名temp_branch为$branch"
+
+            - name: 强制推送，覆盖远程历史
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  branch=$(git symbolic-ref --short HEAD)
+                  echo "开始强制推送到远程分支 $branch"
+                  git push --force --set-upstream origin $branch
+                  echo "推送完成，历史记录已重置"

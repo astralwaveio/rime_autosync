@@ -1,0 +1,39 @@
+patch:
+    # 修改默认输入法的状态
+    us_keyboard_layout: false
+    app_options:
+        com.googlecode.iterm2:
+            ascii_mode: false
+        com.apple.dt.Xcode:
+            ascii_mode: false
+        org.gnu.Aquamacs:
+            ascii_mode: false
+        org.gnu.Emacs:
+            ascii_mode: false
+            no_inline: true
+
+    # 主题设置
+    style/color_scheme: nord_light # 浅色主题
+    style/color_scheme_dark: nord_dark # 深色主题
+
+    # 布局设置
+    style/candidate_list_layout: linear # 候选词横向排列
+    style/text_orientation: horizontal # 水平文字方向
+    style/inline_candidate: false # 候选词内联显示
+    style/inline_preedit: true # 在文本框顯示輸入串
+    preset_color_schemes/nord_light/inline_candidate: false # 在文本框顯示輸入串
+    preset_color_schemes/nord_light/inline_preedit: true # 在文本框顯示輸入串
+    preset_color_schemes/nord_dark/inline_candidate: false # 在文本框顯示輸入串
+    preset_color_schemes/nord_dark/inline_preedit: true # 在文本框顯示輸入串
+
+    # 字体设置
+    style/font_point: 16 # 字体大小
+    style/font_face: 'LXGW WenKai GB Screen, Segoe UI Emoji, 98WB-0, Microsoft YaHei' # 字体列表
+
+    # 外观圆角
+    style/corner_radius: 5 # 普通圆角
+    style/hilited_corner_radius: 5 # 高亮圆角
+
+    # 间距设置
+    style/line_spacing: 10 # 行间距
+    style/hilite_spacing: 6 # 高亮间距

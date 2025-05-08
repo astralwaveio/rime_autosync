@@ -1,0 +1,57 @@
+# 操作系统文件
+.DS_Store
+Thumbs.db
+Desktop.ini
+._*
+
+# Rime用户配置文件
+installation.yaml
+user.yaml
+/*custom*.yaml
+/bin/*custom*
+
+# 用户词库和数据目录
+*.userdb/
+*.userdb.txt
+*.userdb.kct
+lua/tips.userdb/**
+zc.userdb/**
+build/
+sync/**
+
+# 编译生成的文件
+*.bin
+*.txt.in
+*.schema.yaml.bin
+
+# 日志文件
+*.log
+rime.log.*
+
+# 备份和临时文件
+*.old
+*.bak
+*.swp
+*~
+.*.swp
+._*
+*.tmp
+
+# 特定文件
+my_custom_dict.txt
+wanxiang-lts-zh-hans.gram
+
+# 系统相关
+/cache/
+/user_data/
+
+# 可能的IDE文件
+.idea/
+.vscode/
+*.sublime-*
+
+# easy en
+/easy_en.dict.yaml
+/easy_en.schema.yaml
+/easy_en.yaml
+/lua/easy_en.lua

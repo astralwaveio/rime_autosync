@@ -1,0 +1,124 @@
+name: Sync Latest Release from rime_wanxiang
+
+on:
+    schedule:
+        # 每周六凌晨3点执行 (UTC 19:00 Friday = 北京时间周六 3:00)
+        - cron: '0 19 * * 5'
+    workflow_dispatch: # 允许手动触发
+
+jobs:
+    sync-release:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+
+        steps:
+            - name: Checkout destination repository
+              uses: actions/checkout@v4
+              with:
+                  repository: 'astralwaveio/rime_autosync'
+                  ref: 'main'
+                  fetch-depth: 1
+
+            - name: Setup Git Identity
+              run: |
+                  git config user.name "GitHub Sync Bot"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            - name: Get latest valid release tag
+              id: get_tag
+              run: |
+                  # 获取所有tag并按版本排序
+                  TAGS=$(curl -s https://api.github.com/repos/amzxyz/rime_wanxiang/tags | jq -r '.[].name')
+                  VALID_TAG=""
+
+                  # 遍历所有tag找到最新的符合格式的tag (v开头后跟数字)
+                  for tag in $TAGS; do
+                    if [[ $tag =~ ^v[0-9] ]]; then
+                      VALID_TAG=$tag
+                      break
+                    fi
+                  done
+
+                  if [ -z "$VALID_TAG" ]; then
+                    echo "No valid tag found matching the format v[0-9]..."
+                    exit 1
+                  fi
+
+                  echo "Found valid tag: $VALID_TAG"
+                  echo "release_tag=$VALID_TAG" >> $GITHUB_OUTPUT
+
+            - name: Download and unzip release
+              id: download
+              run: |
+                  TAG=${{ steps.get_tag.outputs.release_tag }}
+                  DOWNLOAD_URL="https://github.com/amzxyz/rime_wanxiang/archive/refs/tags/${TAG}.zip"
+                  echo "Downloading: $DOWNLOAD_URL"
+
+                  # 创建临时目录
+                  mkdir -p /tmp/release
+
+                  # 下载并解压
+                  curl -L "$DOWNLOAD_URL" -o /tmp/release.zip
+                  unzip -q /tmp/release.zip -d /tmp/release/
+
+                  # 获取解压后的目录名（通常是 "rime_wanxiang-版本号" 去掉v前缀）
+                  EXTRACTED_DIR=$(find /tmp/release -mindepth 1 -maxdepth 1 -type d | head -n 1)
+                  echo "Extracted to: $EXTRACTED_DIR"
+                  echo "extracted_dir=$EXTRACTED_DIR" >> $GITHUB_OUTPUT
+
+            - name: Sync files with exceptions
+              run: |
+                  EXTRACTED_DIR=${{ steps.download.outputs.extracted_dir }}
+
+                  # 创建排除文件列表
+                  cat > /tmp/exclude.txt << EOF
+                  custom/
+                  bin/
+                  .github/
+                  .gitignore
+                  my_custom_dict.txt
+                  README-sync.md
+                  EOF
+
+                  # 保存当前目录中需要保留的文件和目录
+                  mkdir -p /tmp/backup
+
+                  while IFS= read -r item; do
+                    if [[ -e "$item" ]]; then
+                      dir=$(dirname "/tmp/backup/$item")
+                      mkdir -p "$dir"
+                      cp -rf "$item" "/tmp/backup/$item"
+                      echo "Backed up: $item"
+                    fi
+                  done < /tmp/exclude.txt
+
+                  # 删除当前目录中未排除的所有文件，但保留.git目录
+                  find . -mindepth 1 -not -path "./.git*" | grep -v -f /tmp/exclude.txt | xargs rm -rf
+
+                  # 复制解压后的文件，但排除特定文件和目录
+                  rsync -av --exclude-from=/tmp/exclude.txt "$EXTRACTED_DIR/" ./
+
+                  # 恢复备份的文件
+                  cp -rf /tmp/backup/* ./
+
+            - name: Check for changes
+              id: check_changes
+              run: |
+                  git add -A
+                  if git diff --staged --quiet; then
+                    echo "No changes detected"
+                    echo "changes_detected=false" >> $GITHUB_OUTPUT
+                  else
+                    echo "Changes detected"
+                    echo "changes_detected=true" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Commit and push changes
+              if: steps.check_changes.outputs.changes_detected == 'true'
+              run: |
+                  TAG=${{ steps.get_tag.outputs.release_tag }}
+                  DATE=$(date '+%Y-%m-%d')
+                  git commit -m "Auto-sync from rime_wanxiang release $TAG on $DATE"
+                  git push
+                  echo "Changes committed and pushed successfully"

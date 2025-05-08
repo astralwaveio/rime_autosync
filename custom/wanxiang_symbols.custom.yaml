@@ -1,0 +1,3 @@
+patch:
+  symbol_table/full_shape/@5: {'/' : ／}
+  symbol_table/half_shape/@4: {'/' : /}
