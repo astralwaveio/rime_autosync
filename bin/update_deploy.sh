@@ -11,8 +11,8 @@ print_msg() {
 
 ### ============ 主要功能函数 ============ ###
 update_rime_config() {
-  local SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-  local REPO_DIR="$(dirname "$SCRIPT_DIR")"
+  # 本地Rime目录
+  local REPO_DIR="$HOME/Library/Rime"
 
   cd "$REPO_DIR" || {
     print_msg "31" "错误: 无法进入仓库目录"

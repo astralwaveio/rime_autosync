@@ -1,8 +1,28 @@
 #!/bin/bash
 
-SCRIPT_DIR="$HOME/Library/Rime"
+# 定义颜色输出函数
+print_green() {
+    echo -e "\033[0;32m$1\033[0m"
+}
 
-cd "$SCRIPT_DIR" || exit 1
+print_red() {
+    echo -e "\033[0;31m$1\033[0m"
+}
+
+print_blue() {
+    echo -e "\033[0;34m$1\033[0m"
+}
+
+print_yellow() {
+    echo -e "\033[0;33m$1\033[0m"
+}
+
+# 本地Rime目录
+REPO_DIR="$HOME/Library/Rime"
+cd "$REPO_DIR" || {
+    print_red "无法进入仓库目录: $REPO_DIR"
+    exit 1
+}
 
 # 清理 build
 echo "清理  build 目录..."

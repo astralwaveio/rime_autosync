@@ -17,6 +17,13 @@ print_yellow() {
     echo -e "\033[0;33m$1\033[0m"
 }
 
+# 本地Rime目录
+REPO_DIR="$HOME/Library/Rime"
+cd "$REPO_DIR" || {
+    print_red "无法进入仓库目录: $REPO_DIR"
+    exit 1
+}
+
 # 获取脚本所在目录
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # 获取仓库根目录

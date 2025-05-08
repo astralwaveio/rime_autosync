@@ -1,22 +1,30 @@
 #!/bin/bash
 
-### ============ 全局颜色输出函数（合并所有需要） ============ ###
-print_green() { echo -e "\033[0;32m$1\033[0m"; }
-print_red() { echo -e "\033[0;31m$1\033[0m"; }
-print_blue() { echo -e "\033[0;34m$1\033[0m"; }
-print_yellow() { echo -e "\033[0;33m$1\033[0m"; }
+# 定义颜色输出函数
+print_green() {
+    echo -e "\033[0;32m$1\033[0m"
+}
 
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+print_red() {
+    echo -e "\033[0;31m$1\033[0m"
+}
+
+print_blue() {
+    echo -e "\033[0;34m$1\033[0m"
+}
+
+print_yellow() {
+    echo -e "\033[0;33m$1\033[0m"
+}
+
+# 本地Rime目录
+REPO_DIR="$HOME/Library/Rime"
+cd "$REPO_DIR" || {
+    print_red "无法进入仓库目录: $REPO_DIR"
+    exit 1
+}
 
 ### ============ Begin 1st Script (Git 更新和推送) ============ ###
-
-# 获取脚本所在目录
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# 获取仓库根目录
-REPO_DIR="$(dirname "$SCRIPT_DIR")"
 
 # 处理自定义提交信息
 COMMIT_MSG="更新自定义配置 $(date '+%Y-%m-%d %H:%M')"
@@ -247,41 +255,29 @@ else
 fi
 
 # === 询问是否重新部署Rime ===
-echo -e "\n${YELLOW}是否现在重新部署Rime输入法？(推荐同步后使修改生效) [Y/n]${NC}"
-read -p "请输入回车（默认部署）或 n (不部署): " deploy_rime_ask
+echo -e "\n现在重新部署Rime输入法"
+print_blue "正在重新部署Rime..."
 
-# 如果输入为空（直接回车），默认为 "y"
-if [[ -z "$deploy_rime_ask" ]]; then
-    deploy_rime_ask="y"
-fi
-
-if [[ $deploy_rime_ask == [yY] || $deploy_rime_ask == [yY][eE][sS] ]]; then
-    print_blue "正在重新部署Rime..."
-
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        # macOS系统 - 重新部署鼠须管(Squirrel)
-        if [ -f "/Library/Input Methods/Squirrel.app/Contents/MacOS/Squirrel" ]; then
-            "/Library/Input Methods/Squirrel.app/Contents/MacOS/Squirrel" --reload
-            print_green "鼠须管(Squirrel)已重新部署"
-        else
-            print_red "未找到鼠须管(Squirrel)，请手动部署"
-        fi
-    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        # Linux系统 - 重新部署ibus-rime或fcitx-rime
-        if command -v ibus-daemon &>/dev/null; then
-            ibus-daemon -rdx
-            print_green "ibus-rime已重新部署"
-        elif command -v fcitx &>/dev/null; then
-            fcitx -r
-            print_green "fcitx-rime已重新部署"
-        else
-            print_red "未找到ibus或fcitx，请手动部署Rime"
-        fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS系统 - 重新部署鼠须管(Squirrel)
+    if [ -f "/Library/Input Methods/Squirrel.app/Contents/MacOS/Squirrel" ]; then
+        "/Library/Input Methods/Squirrel.app/Contents/MacOS/Squirrel" --reload
+        print_green "鼠须管(Squirrel)已重新部署"
     else
-        print_red "未知操作系统，请手动部署Rime"
+        print_red "未找到鼠须管(Squirrel)，请手动部署"
+    fi
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Linux系统 - 重新部署ibus-rime或fcitx-rime
+    if command -v ibus-daemon &>/dev/null; then
+        ibus-daemon -rdx
+        print_green "ibus-rime已重新部署"
+    elif command -v fcitx &>/dev/null; then
+        fcitx -r
+        print_green "fcitx-rime已重新部署"
+    else
+        print_red "未找到ibus或fcitx，请手动部署Rime"
     fi
 else
-    echo -e "${YELLOW}已跳过重新部署Rime，请在输入法中手动部署以应用配置。${NC}"
+    print_red "未知操作系统，请手动部署Rime"
 fi
-
 ### ============ End 3rd Script ============ ###

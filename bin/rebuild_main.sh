@@ -1,5 +1,29 @@
 #!/bin/bash
 
+# 定义颜色输出函数
+print_green() {
+    echo -e "\033[0;32m$1\033[0m"
+}
+
+print_red() {
+    echo -e "\033[0;31m$1\033[0m"
+}
+
+print_blue() {
+    echo -e "\033[0;34m$1\033[0m"
+}
+
+print_yellow() {
+    echo -e "\033[0;33m$1\033[0m"
+}
+
+# 本地Rime目录
+LOCAL_DIR="$HOME/Library/Rime"
+cd "$LOCAL_DIR" || {
+    print_red "无法进入仓库目录: $LOCAL_DIR"
+    exit 1
+}
+
 # 自动化重建 main 分支脚本（无备份，慎用！）
 
 set -e # 遇到错误立即退出
