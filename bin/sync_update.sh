@@ -49,6 +49,8 @@ print_blue "将custom目录中的文件复制到根目录..."
 cp -f custom/* . 2>/dev/null || true
 
 # 2. 检查目录是否有变更
+# 设置上游仓库
+git push --set-upstream origin main
 print_blue "检查custom目录变更..."
 git status --porcelain custom/ bin/ | grep -q . || {
     print_blue "检查整个仓库是否有变更..."
