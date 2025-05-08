@@ -4,7 +4,7 @@
 #------行政区划------
 ---
 name: place
-version: "2025-05-07 23:13"
+version: "2025-05-08 22:27"
 sort: by_weight
 ...
 阿坝	ā bà	472
@@ -294,7 +294,7 @@ sort: by_weight
 大村	dà cūn	483
 大东	dà dōng	501
 大肚	dà dù	503
-大方	dà fāng	676
+大方	dà fang	676
 大丰	dà fēng	469
 大关	dà guān	619
 大观	dà guān	524
@@ -15781,9 +15781,9 @@ sort: by_weight
 董家塬村	dǒng jiā yuán cūn	1
 董家庄村	dǒng jiā zhuāng cūn	173
 东贾庄村	dōng jiǎ zhuāng cūn	1
-东家庄村	dōng jiā zhuāng cūn	1
+东家庄村	dōng jia zhuāng cūn	1
 东甲庄村	dōng jiǎ zhuāng cūn	1
-东家嘴村	dōng jiā zuǐ cūn	1
+东家嘴村	dōng jia zuǐ cūn	1
 东涧北村	dōng jiàn běi cūn	1
 东建德村	dōng jiàn dé cūn	1
 东涧沟村	dōng jiàn gōu cūn	1
@@ -16713,13 +16713,13 @@ sort: by_weight
 东作里村	dōng zuò lǐ cūn	1
 都道府县	dōu dào fǔ xiàn	574
 斗范梁村	dòu fàn liáng cūn	1
-豆腐店村	dòu fǔ diàn cūn	1
-豆腐房村	dòu fǔ fáng cūn	1
-豆腐沟村	dòu fǔ gōu cūn	1
-豆腐李村	dòu fǔ lǐ cūn	1
-豆腐刘村	dòu fǔ liú cūn	1
-豆腐营村	dòu fǔ yíng cūn	1
-豆腐庄村	dòu fǔ zhuāng cūn	270
+豆腐店村	dòu fu diàn cūn	1
+豆腐房村	dòu fu fáng cūn	1
+豆腐沟村	dòu fu gōu cūn	1
+豆腐李村	dòu fu lǐ cūn	1
+豆腐刘村	dòu fu liú cūn	1
+豆腐营村	dòu fu yíng cūn	1
+豆腐庄村	dòu fu zhuāng cūn	270
 豆各庄乡	dòu gè zhuāng xiāng	222
 陡沟河村	dǒu gōu hé cūn	1
 斗沟子村	dòu gōu zi cūn	1
