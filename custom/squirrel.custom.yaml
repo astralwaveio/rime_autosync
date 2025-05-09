@@ -1,6 +1,8 @@
 patch:
-    # 修改默认输入法的状态
-    us_keyboard_layout: false
+    # 全局设置
+    us_keyboard_layout: false # 禁用美式键盘布局，通常与 macOS 输入法设置保持一致
+
+    # 针对特定应用的设置，可以在这里覆盖 ascii_mode 等全局选项
     app_options:
         com.googlecode.iterm2:
             ascii_mode: false
@@ -11,29 +13,76 @@ patch:
         org.gnu.Emacs:
             ascii_mode: false
             no_inline: true
+        com.jetbrains.intellij:
+            ascii_mode: false
+            no_inline: true
+        com.jetbrains.pycharm:
+            ascii_mode: false
+            no_inline: true
+        com.jetbrains.webstorm:
+            ascii_mode: false
+            no_inline: true
+        com.microsoft.VSCode:
+            ascii_mode: false
+            no_inline: true
+        com.apple.Terminal:
+            ascii_mode: false
+        com.apple.TextEdit:
+            ascii_mode: false
+            no_inline: true
 
-    # 主题设置
-    style/color_scheme: nord_light # 浅色主题
-    style/color_scheme_dark: nord_dark # 深色主题
+    # 样式设置
+    style:
+        color_scheme: nord_light
+        color_scheme_dark: nord_dark
+        candidate_list_layout: linear
+        text_orientation: horizontal
+        inline_candidate: false
+        inline_preedit: true
+        font_point: 16
+        font_face:
+            "LXGW WenKai GB Screen, Segoe UI Emoji, 98WB-0, Microsoft YaHei"
+        corner_radius: 2
+        hilited_corner_radius: 2
+        line_spacing: 10
+        hilite_spacing: 6
 
-    # 布局设置
-    style/candidate_list_layout: linear # 候选词横向排列
-    style/text_orientation: horizontal # 水平文字方向
-    style/inline_candidate: false # 候选词内联显示
-    style/inline_preedit: true # 在文本框顯示輸入串
-    preset_color_schemes/nord_light/inline_candidate: false # 在文本框顯示輸入串
-    preset_color_schemes/nord_light/inline_preedit: true # 在文本框顯示輸入串
-    preset_color_schemes/nord_dark/inline_candidate: false # 在文本框顯示輸入串
-    preset_color_schemes/nord_dark/inline_preedit: true # 在文本框顯示輸入串
-
-    # 字体设置
-    style/font_point: 16 # 字体大小
-    style/font_face: 'LXGW WenKai GB Screen, Segoe UI Emoji, 98WB-0, Microsoft YaHei' # 字体列表
-
-    # 外观圆角
-    style/corner_radius: 5 # 普通圆角
-    style/hilited_corner_radius: 5 # 高亮圆角
-
-    # 间距设置
-    style/line_spacing: 10 # 行间距
-    style/hilite_spacing: 6 # 高亮间距
+    # 预设配色方案 (覆盖全局样式中的部分设置)
+    preset_color_schemes:
+        native:
+            name: 系統配色
+        nord_light:
+            candidate_format: "%c %@ "
+            font_point: 16
+            label_font_point: 14
+            corner_radius: 5
+            line_spacing: 10
+            back_color: 0xF4EFEC
+            border_color: 0xF4EFEC
+            candidate_text_color: 0x4C566A # 0xC1A181
+            comment_text_color: 0xD0C088
+            hilited_back_color: 0xE0D9D5
+            hilited_candidate_back_color: 0xA3BE8C
+            hilited_candidate_text_color: 0x2E3440
+            hilited_text_color: 0xAD8EB4
+            text_color: 0x7087D0
+            inline_candidate: false
+            inline_preedit: true
+        nord_dark:
+            name: 北方深色
+            candidate_format: "%c %@ "
+            font_point: 16
+            label_font_point: 14
+            corner_radius: 5
+            line_spacing: 10
+            back_color: 0x473A33
+            border_color: 0x473A33
+            candidate_text_color: 0xF5D887
+            comment_text_color: 0xE6B687
+            hilited_back_color: 0x5C4E45
+            hilited_candidate_back_color: 0x2E3440
+            hilited_candidate_text_color: 0xE5E9F0
+            hilited_text_color: 0x6EC8F5
+            text_color: 0x78E8F0
+            inline_candidate: false
+            inline_preedit: true
