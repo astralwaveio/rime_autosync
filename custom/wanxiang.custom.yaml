@@ -2,33 +2,33 @@ patch:
     # 双拼设置
     speller/algebra:
         __patch:
-            - wanxiang.schema:/全拼 # 双拼方案（如全拼/自然码/小鹤等）
+            - wanxiang.schema:/全拼
 
     # 中英混合词典
-    cn_en/user_dict: en_dicts/pinyin # 中英词典路径（需与双拼类型对应）
+    cn_en/user_dict: en_dicts/pinyin
 
     # 个人短语库
     custom_phrase/user_dict: my_custom_dict
 
     # 候选词设置
-    menu/page_size: 7 # 候选词每页显示数量
-    menu/alternative_select_labels: [①., ②., ③., ④., ⑤., ⑥., ⑦., ⑧., ⑨., ⑩.] # 自定义候选词序号标签
+    menu/page_size: 7
+    menu/alternative_select_labels: [ '1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.', '10.' ]
 
     # 模糊音
     speller/algebra/+:
         - derive/^([zcs])h/$1/
         - derive/^([zcs])([^h])/$1h$2/
     # 默认开启 emoji 补全，默认关闭声调，关闭 rime 英文方案
+    switches/@0/states: [ 中 ]
+    switches/@0/reset: 0
     switches/@4/reset: 1
     switches/@6/reset: 0
-    switches/@0/states: [中]
-    switches/@0/reset: 0
+    switches/@8/reset: 0
 
     # 图标设置
     schema/+:
-        icon: "icons/zhong.ico" # 中文模式图标路径
-        ascii_icon: "icons/ying.ico" # 英文模式图标路径
+        icon: "icons/zhong.ico"
+        ascii_icon: "icons/ying.ico"
     # 快符规则
-    recognizer/patterns/quick_symbol: "^;.*$" # 快符符号引导规则
-
-    translator/disable_user_dict_for_patterns: "^[a-z]{1,6}" # 禁用调频的正则模式
+    recognizer/patterns/quick_symbol: "^;.*$"
+    translator/disable_user_dict_for_patterns: "^[a-z]{1,6}"
