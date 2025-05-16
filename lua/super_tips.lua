@@ -90,9 +90,9 @@ local function is_mobile_device()
     if dist == "trime" or dist == "hamster" or dist == "Squirrel" then
         return true
     end
-    -- 补充判断：路径中出现 mobile/Android/手机特征
+    -- 补充判断：路径中出现 mobile/Android/手机特征，/data/storage/el2/随机字符串/group是鸿蒙的路径
     local lower_path = user_data_dir:lower()
-    if lower_path:find("/android/") or lower_path:find("/mobile/") or lower_path:find("/sdcard/") then
+    if lower_path:find("/android/") or lower_path:find("/mobile/") or lower_path:find("/sdcard/") or lower_path:find("/data/storage/") then
         return true
     end
     return false
@@ -155,7 +155,7 @@ function S.func(key, env)
     if not segment then
         return 2
     end
-    if string.match(input_text, "^V") or string.match(input_text, "^R") or string.match(input_text, "^N") then
+    if string.match(input_text, "^V") or string.match(input_text, "^R") or string.match(input_text, "^N") or string.match(input_text, "^U") or string.match(input_text, "^/") then
         return 2
     end
     local db = wrapLevelDb("lua/tips", false)
@@ -183,7 +183,10 @@ function S.func(key, env)
         tipsph = segment.prompt
     end
     -- 检查是否触发提示上屏
-    if (context:is_composing() or context:has_menu()) and S.tips_key and is_super_tips and (tipspc or tipsph) then
+    if (context:is_composing() or context:has_menu())
+        and S.tips_key
+        and is_super_tips
+        and ((tipspc and tipspc ~= "") or (tipsph and tipsph ~= "")) then
         local trigger = key:repr() == S.tips_key
         local text = selected_cand and selected_cand.text or input_text
         if trigger then
