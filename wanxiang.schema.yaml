@@ -67,6 +67,7 @@ engine:
     - lua_processor@*super_tips*S               #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
     - lua_processor@*super_sequence*P           #手动排序，高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
     - lua_processor@*limit_repeated             #用于限制最大候选长度以及最大重复输入声母编码长度，避免性能异常
+    - lua_processor@*backspace_limit       #防止连续 Backspace 在编码为空时删除已上屏内容
     - lua_processor@*userdb_sync_delete         #危险操作：通过输入 /del 触发,用于清理自定义同步目录下txt用户词典里被标记c<0的词条，操作步骤：必须先同步、再执行/del、再去部署刷新状态、再去同步回收词典，完成动作。
     - ascii_composer                            #处理英文模式及中英文切换
     - recognizer                                #与 matcher 搭配，处理符合特定规则的输入码，如网址、反查等 tags
@@ -116,6 +117,7 @@ engine:
     - lua_filter@*search@wanxiang_radical           #部件拆字辅码放在简繁转换之后
     - lua_filter@*super_tips*M                      #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
     - lua_filter@*super_comment                     #超级注释模块，支持错词提示、辅助码显示，部件组字读音注释，支持个性化配置和关闭相应的功能，详情搜索super_comment进行详细配置
+    - lua_filter@*text_formatting                   #给自定义用户词扩展一个换行:\n, 制表符：\t, 回车符：\r, 空格：\s
     - uniquifier                                    # 去重
 
 predictor:
@@ -140,6 +142,14 @@ predictor:
 #大写N日期：N20250315
 #节日：ojr 或者 /jr
 #问候模板：/day 或者 oday
+#生日信息：/sr或者osr
+birthday_reminder:  #日期格式：必须是4位数字，格式为MMDD（月份和日期），例如：1月27日 → 0127 ，#备注格式：在日期后添加逗号，然后添加任意文本作为备注，例如："0501,我的好朋友"，也可以无备注
+  solar_birthdays:  # 公历生日, 姓名: "日期,备注" or 姓名: "日期"
+    小明: "0501,准备礼物"
+    大明: "0405"
+  lunar_birthdays:  # 农历生日, 姓名: "日期,备注" or 姓名: "日期"
+    小明: "0114"
+    小红: "0815,农历中秋"
 
 #快符lua，lua中有预设，26个字母、10个数字，你可以在这里配置替换默认的值，键可以是一个或多个，值可以是任意字符这里不齐全默认配置将生效
 quick_symbol_text:
@@ -189,7 +199,7 @@ translator:
   dictionary: wanxiang         # 挂载主词库
 #  packs: user                  #导入根目录下名称为user.dict.yaml的自定义固定词典
   #prism: wanxiang             # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字。
-  enable_completion: true      # 启用候选词补全
+  enable_completion: false      # 启用候选词补全
 #  user_dict: zrm.userdb       # 用户词典的文件名称
 #  db_class: tabledb           #开启后就不会产生wanxiang.userdb这样的文件夹，会直接输出文本wanxiang.txt同时无法使用同步能力，可设 tabledb〔文本〕或 userdb〔二进制〕
   enable_user_dict: true       # 是否开启自动调频，即开启用户词典
@@ -294,6 +304,7 @@ reverse_stroke:
   tag: reverse_stroke
   dictionary: wanxiang_stroke
   db_class: tabledb
+  enable_user_dict: false
   enable_completion: true
   suffix: "'"
   preedit_format:
@@ -399,7 +410,7 @@ speller:
       - set_gongjian_mohu    #共键输入或者模糊音选择性开启
 
 
-全拼: 
+全拼:
   __append:
     - xform/^([a-z]+)$/$1④/
     - xform/^(.*)ā(.*)$/$1a$2①/
@@ -435,6 +446,8 @@ speller:
     - xform/^n(\d)/en$1/
     - derive/([nl])ve(\d)/$1ue$2/                            #让üè兼容ue
     - derive/^([jqx])v(\d)$/$1u$2/
+    - abbrev/^([zcs]h).+$/$1/                        #zh ch sh作为整体
+    - abbrev/^([zcs]h).+(\d)$/$1$2/                  #zh ch sh作为整体
     - abbrev/^([qwrtypsdfghjklzxcbnm]).+$/$1/        #不携带元音的声母派生出首字母简码来
     - abbrev/^([qwrtypsdfghjklzxcbnm]).+(\d)$/$1$2/  #不携带元音的声母派生出首字母简码来+数字声调
     - abbrev/^([aoe])([ioun])(\d)$/$1/               #携带两个字符的元音首字母派生出简码来
@@ -1030,7 +1043,7 @@ add_user_dict:
   encode_commit_history: false # 是否对已上屛词自动成词〔仅 table_translator 有效〕  
   comment_format:
   prefix: "``"
-  tips: "〔自造词〕"
+  tips: "〔开始造词〕"
 
 #语法模型
 octagram:
@@ -1039,10 +1052,10 @@ octagram:
       language: wanxiang-lts-zh-hans
       collocation_max_length: 8         #命中的最长词组
       collocation_min_length: 2         #命中的最短词组，搭配词频健全的词库时候应当最小值设为3避开2字高频词
-      collocation_penalty: -10          #默认-12 对常见搭配词组施加的惩罚值。较高的负值会降低这些搭配被选中的概率，防止过于频繁地出现某些固定搭配。
+      collocation_penalty: -12          #默认-12 对常见搭配词组施加的惩罚值。较高的负值会降低这些搭配被选中的概率，防止过于频繁地出现某些固定搭配。
       non_collocation_penalty: -12      #默认-12 对非搭配词组施加的惩罚值。较高的负值会降低非搭配词组被选中的概率，避免不合逻辑或不常见的词组组合。
       weak_collocation_penalty: -24     #默认-24 对弱搭配词组施加的惩罚值。保持默认值通常是为了有效过滤掉不太常见但仍然合理的词组组合。
-      rear_penalty: -30                 #默认-18 对词组中后续词语的位置施加的惩罚值。较高的负值会降低某些词语在句子后部出现的概率，防止句子结构不自然。
+      rear_penalty: -18                 #默认-18 对词组中后续词语的位置施加的惩罚值。较高的负值会降低某些词语在句子后部出现的概率，防止句子结构不自然。
     translator/contextual_suggestions: false  #模型预测，假设模型里面有的四个字的词汇 现在智能 而首选组合 现在只能 当你输入 现在 上屏后下一次输入zhi neng就会输出，智能前提是没有权重更高的了，很明显这与你的预期“现在只能”不符。很明显实际上又要预测又要连续句子，放一起是很难优雅的。
     translator/max_homophones: 5
     translator/max_homographs: 5

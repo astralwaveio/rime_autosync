@@ -1,5 +1,5 @@
 ### 万象拼音 
-**配套方案** 本方案为万象系列方案基础版(携带声调辅助筛选) （内建同文拼音9、14、18键布局方案）
+**配套方案** 本方案为万象系列方案标准版(携带声调辅助筛选) （内建同文拼音9、14、18键布局方案）
 
    [>>辅助码增强版本](https://github.com/amzxyz/rime_wanxiang_pro)  
 
@@ -260,4 +260,6 @@ set_shuru_schema:
 
    <img src="https://github.com/amzxyz/rime_wanxiang_pro/blob/main/.github/%E8%B5%9E%E8%B5%8F.jpeg" width="400">   
 
- 
+ ## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=amzxyz/RIME-LMDG,amzxyz/rime_wanxiang,amzxyz/rime_wanxiang_pro&type=Date)](https://www.star-history.com/#amzxyz/RIME-LMDG&amzxyz/rime_wanxiang&amzxyz/rime_wanxiang_pro&Date)
