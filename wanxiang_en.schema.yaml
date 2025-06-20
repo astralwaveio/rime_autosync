@@ -1,18 +1,19 @@
 # Rime schema
 # encoding: utf-8
 
+# 全拼和各个双拼有部分拼写规则不通用，需要修改
 ###############选择与之匹配的拼音方案#####################
 set_shuru_schema:
-  __include: 全拼    #可选的选项有（全拼, 自然码, 自然龙, 小鹤双拼, 搜狗双拼, 微软双拼, 智能ABC, 紫光双拼）
+  __include: 自然码    #可选的选项有（自然码, 小鹤双拼, 微软双拼, 搜狗双拼, 智能ABC, 紫光双拼）
 
 ######################################################
 
 schema:
   schema_id: wanxiang_en
-  name: 简单英语
-  version: "2024-10-17"
+  name: 英文
+  version: "2023-10-17"
   author:
-  description: 简单英语，只包含少量常用词汇，方便中英文混合输入度方案调用。
+  description: Easy English Nano，只包含少量常用词汇，方便中英文混合输入度方案调用。
 
 switches:
   - name: ascii_mode
@@ -25,6 +26,7 @@ engine:
     - key_binder
     - speller
     - recognizer
+    #關閉標點符號轉換（對應symbols.yaml）    - punctuator
     - selector
     - navigator
     - express_editor

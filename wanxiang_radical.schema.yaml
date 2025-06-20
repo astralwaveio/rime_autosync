@@ -2,15 +2,15 @@
 # encoding: utf-8
 ###############选择与之匹配的拼音方案#####################
 set_shuru_schema:
-  __include: 全拼    #可选的选项有（全拼, 自然码, 自然龙, 小鹤双拼, 搜狗双拼, 微软双拼, 智能ABC, 紫光双拼）
+  __include: 自然码    #可选的选项有（自然码, 小鹤双拼, 微软双拼, 搜狗双拼, 智能ABC, 紫光双拼）
 
 ######################################################
 schema:
   schema_id: wanxiang_radical
-  name: 反查：部件组字
+  name: "反查：部件组字"
   version: "1.1.0"
-  author: Mirtle, amzxyz
-  description: |
+  author: Mirtle
+  description:
 engine:
   processors:
     - key_binder

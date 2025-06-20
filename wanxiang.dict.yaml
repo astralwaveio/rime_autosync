@@ -24,3 +24,4 @@ import_tables:
   - cn_dicts/poetry          #诗词
   - cn_dicts/place           #地名
 ...
+
