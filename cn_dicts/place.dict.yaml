@@ -3716,6 +3716,7 @@ sort: by_weight
 崇左市	chóng zuǒ shì	214
 绸缎庄	chóu duàn zhuāng	31
 褚家村	chǔ jiā cūn	31
+䢺江镇	chū jiāng zhèn	1
 褚兰镇	chǔ lán zhèn	171
 楚雄市	chǔ xióng shì	188
 滁州市	chú zhōu shì	231
@@ -13561,7 +13562,6 @@ sort: by_weight
 稠树塘镇	chóu shù táng zhèn	58
 臭水沟村	chòu shuǐ gōu cūn	1
 臭水井村	chòu shuǐ jǐng cūn	1
-出阝江镇	chū fù jiāng zhèn	1
 处归凌庄	chù guī líng zhuāng	58
 褚家湾村	chǔ jiā wān cūn	1
 褚家庄村	chǔ jiā zhuāng cūn	1
@@ -23465,7 +23465,7 @@ sort: by_weight
 拉西瓦镇	lā xī wǎ zhèn	149
 拉腰子村	lā yāo zi cūn	1
 拉依喀乡	lā yī kā xiāng	77
-拉一木乡	lā yī mù xiāng	77
+拉一木乡	lā yí mù xiāng	77
 砬子沟村	lá zǐ gōu cūn	58
 砬子河村	lá zǐ hé cūn	1
 腊子口乡	là zǐ kǒu xiāng	1
@@ -36706,7 +36706,7 @@ sort: by_weight
 乌药山村	wū yào shān cūn	92
 武夷茶庄	wǔ yí chá zhuāng	1
 五一村村	wǔ yī cūn cūn	92
-五一东村	wǔ yì dōng cūn	199
+五一东村	wǔ yī dōng cūn	199
 无疫情村	wú yì qíng cūn	315
 武夷山市	wǔ yí shān shì	442
 武夷山镇	wǔ yí shān zhèn	125
@@ -41286,7 +41286,7 @@ sort: by_weight
 宜船湾村	yí chuán wān cūn	1
 宜川五村	yí chuān wǔ cūn	35
 宜川新村	yí chuān xīn cūn	233
-一簇烟村	yī cù yān cūn	8
+一簇烟村	yí cù yān cūn	8
 怡翠山庄	yí cuì shān zhuāng	156
 伊达宗村	yī dá zōng cūn	1
 伊代尼乡	yī dài ní xiāng	1
@@ -41295,10 +41295,10 @@ sort: by_weight
 异地他乡	yì dì tā xiāng	409
 义东沟村	yì dōng gōu cūn	1
 一斗泉乡	yì dǒu quán xiāng	1
-一渡河村	yī dù hé cūn	1
+一渡河村	yí dù hé cūn	1
 义渡口乡	yì dù kǒu xiāng	1
 义渡坪村	yì dù píng cūn	77
-一渡水镇	yī dù shuǐ zhèn	225
+一渡水镇	yí dù shuǐ zhèn	225
 一都孙村	yī dū sūn cūn	142
 伊顿小镇	yī dùn xiǎo zhèn	105
 伊尔施镇	yī ěr shī zhèn	105
@@ -41405,7 +41405,7 @@ sort: by_weight
 宜牧地乡	yí mù dì xiāng	77
 驿南府村	yì nán fǔ cūn	1
 颐年山庄	yí nián shān zhuāng	1
-一诺面庄	yī nuò miàn zhuāng	1
+一诺面庄	yí nuò miàn zhuāng	1
 一品亦庄	yī pǐn yì zhuāng	1
 一平浪镇	yī píng làng zhèn	213
 伊平屋村	yī píng wū cūn	199
