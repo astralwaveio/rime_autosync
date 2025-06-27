@@ -2,12 +2,18 @@
 # coding: utf-8
 #@/db_name	cn_en_sogou.txt
 #@/db_type	tabledb
-#
-# https://github.com/iDvel/rime-ice
-# ------- 中英混输词库 for 搜狗双拼 -------
-# 由 others/cn_en.txt 自动生成
-#
-# 此行之后不能写注释
+方块A	fhkya
+方块J	fhkyj
+方块Q	fhkyq
+方块K	fhkyk
+梅花A	mzhwa
+梅花J	mzhwj
+梅花Q	mzhwq
+梅花K	mzhwk
+黑桃A	hztka
+黑桃J	hztkj
+黑桃Q	hztkq
+黑桃K	hztkk
 X光	Xgd
 X光	xgd
 X光片	Xgdpm

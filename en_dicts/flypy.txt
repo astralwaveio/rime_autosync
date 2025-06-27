@@ -2,12 +2,18 @@
 # coding: utf-8
 #@/db_name	cn_en_flypy.txt
 #@/db_type	tabledb
-#
-# https://github.com/iDvel/rime-ice
-# ------- 中英混输词库 for 小鹤双拼 -------
-# 由 others/cn_en.txt 自动生成
-#
-# 此行之后不能写注释
+方块A	fhkka
+方块J	fhkkj
+方块Q	fhkkq
+方块K	fhkkk
+梅花A	mwhxa
+梅花J	mwhxj
+梅花Q	mwhxq
+梅花K	mwhxk
+黑桃A	hwtca
+黑桃J	hwtcj
+黑桃Q	hwtcq
+黑桃K	hwtck
 X光	Xgl
 X光	xgl
 X光片	Xglpm

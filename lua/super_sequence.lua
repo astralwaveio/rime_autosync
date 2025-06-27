@@ -3,15 +3,20 @@
 --这个版本是db数据库支持的版本,可能会支持更多的排序记录,作为一个备用版本留存
 --ctrl+j左移 ctrl+k左移  ctrl+0移除排序信息,固定词典其实没必要删除,直接降权到后面
 --排序算法可能还不完美,有能力的朋友欢迎帮忙变更算法
+local data_file = "lua/seq_words.lua"
+local seq_words = nil
+
 -- 序列化并写入文件的函数
-function write_word_to_file(env, record_type)
-    local filename = rime_api.get_user_data_dir() .. "/lua/seq_words.lua"
+local function write_word_to_file()
+    if not seq_words then return end
+
+    local filename = rime_api.get_user_data_dir() .. "/" .. data_file
     if not filename then
         return false
     end
     local serialize_str = "" --返回数据部分
     -- 遍历表中的每个元素并格式化
-    for phrase, entry in pairs(env.seq_words) do
+    for phrase, entry in pairs(seq_words) do
         serialize_str = serialize_str .. string.format('    ["%s"] = {%d},\n', phrase, entry[1]) -- entry[1]为偏移量
     end
     -- 构造完整的 record 内容
@@ -24,12 +29,49 @@ function write_word_to_file(env, record_type)
     fd:close() -- 关闭文件
 end
 
+-- 解析文件内容的函数
+local function load_seq_words_from_file()
+    if seq_words then return end
+
+    seq_words = {}
+    local filename = rime_api.get_user_data_dir() .. "/" .. data_file
+    local file = io.open(filename, "r")
+    if not file then
+        write_word_to_file()
+        return
+    end
+
+    local content = file:read("*all")
+    file:close()
+
+    if not content or content == "" then
+        return
+    end
+
+    -- 执行 Lua 代码来获取数据
+    local func, err = load(content)
+    if not func then
+        log.error(string.format("[super_sequence] 数据文件加载失败，错误信息：%s", err))
+        return
+    end
+
+    local success, result = pcall(func)
+    if not success or type(result) ~= "table" then
+        log.error("[super_sequence] 数据文件解析失败")
+        return
+    end
+
+    seq_words = result
+end
+
 local P = {}
-function P.init(env)
-    env.seq_words = require("seq_words") -- 加载文件中的 seq_words
+function P.init()
+    load_seq_words_from_file()
 end
 
 -- P 阶段按键处理
+---@param key_event KeyEvent
+---@param env Env
 function P.func(key_event, env)
     local context = env.engine.context
     local input_text = context.input
@@ -43,32 +85,32 @@ function P.func(key_event, env)
     local selected_candidate = context:get_selected_candidate()
     local phrase = selected_candidate.text
     local preedit = selected_candidate.preedit
-    local current_position = env.seq_words[phrase] and env.seq_words[phrase][1] -- 获取对应的偏移量
+    local current_position = seq_words[phrase] and seq_words[phrase][1] -- 获取对应的偏移量
     -- 判断按下的键
-    if key_event.keycode == 0x6A then                                           -- ctrl + j (向左移动 1 个)
+    if key_event.keycode == 0x6A then                                   -- ctrl + j (向左移动 1 个)
         if current_position == nil then
-            env.seq_words[phrase] = { -1 }
+            seq_words[phrase] = { -1 }
         else
             local new_position = current_position - 1
             if new_position == 0 then
-                env.seq_words[phrase] = nil
+                seq_words[phrase] = nil
             else
-                env.seq_words[phrase][1] = new_position -- 更新偏移量
+                seq_words[phrase][1] = new_position -- 更新偏移量
             end
         end
     elseif key_event.keycode == 0x6B then -- ctrl + k (向右移动 1 个)
         if current_position == nil then
-            env.seq_words[phrase] = { 1 }
+            seq_words[phrase] = { 1 }
         else
             local new_position = current_position + 1
             if new_position == 0 then
-                env.seq_words[phrase] = nil
+                seq_words[phrase] = nil
             else
-                env.seq_words[phrase][1] = new_position -- 更新偏移量
+                seq_words[phrase][1] = new_position -- 更新偏移量
             end
         end
     elseif key_event.keycode == 0x30 then -- ctrl + 0 (删除位移信息)
-        env.seq_words[phrase] = nil
+        seq_words[phrase] = nil
     else
         return 2
     end
@@ -81,11 +123,20 @@ end
 local F = {}
 local MAX_CANDIDATES = 300
 
-function F.init(env)
-    env.seq_words = require("seq_words") or {}
+function F.init()
+    load_seq_words_from_file()
 end
 
+---@param input Translation
+---@param env Env
 function F.func(input, env)
+    if seq_words == nil then
+        for _, cand in ipairs(sorted) do
+            yield(cand)
+        end
+        return
+    end
+
     local seen = {}
     local displaced = {}          -- 有偏移项
     local fallback = {}           -- 无偏移项
@@ -93,7 +144,7 @@ function F.func(input, env)
     local occupied = {}           -- 位置是否已被占用
     local original_positions = {} -- 记录每个候选的原始 index
 
-    local index = 1               -- 原始顺序编号
+    local index = 1 -- 原始顺序编号
     for cand in input:iter() do
         if index > MAX_CANDIDATES then break end
         local text = cand.text
@@ -101,7 +152,7 @@ function F.func(input, env)
             seen[text] = true
             original_positions[text] = index
 
-            local displacement = env.seq_words[text] and env.seq_words[text][1]
+            local displacement = seq_words[text] and seq_words[text][1]
             if displacement then
                 local pos = index + displacement
                 pos = math.max(pos, 1)              -- 限制左移最小为 1
