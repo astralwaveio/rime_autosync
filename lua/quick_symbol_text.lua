@@ -1,7 +1,6 @@
 -- 欢迎使用万象拼音方案
 -- @amzxyz
 -- https://github.com/amzxyz/rime_wanxiang
--- https://github.com/amzxyz/rime_wanxiang_pro
 -- 本lua通过定义一个不直接上屏的引导符号;搭配[a-z0-1]实现快速符号输入，并在双击;;重复上屏上次提交的内容
 -- 使用方式加入到函数 - lua_processor@*quick_symbol_text 下面
 -- 方案文件配置：
@@ -11,6 +10,9 @@
 --   q: "wwwwwwwww"
 --   w: "？"
 -- 读取 RIME 配置文件中的符号映射表
+
+local wanxiang = require("wanxiang")
+
 local function load_mapping_from_config(config)
     local symbol_map = {}
     local keys = "qwertyuiopasdfghjklzxcvbnm1234567890"
@@ -74,47 +76,64 @@ local function init(env)
         env.mapping[k] = v -- 仅替换配置中存在的键
     end
 
-    local quick_text_pattern = config:get_string("recognizer/patterns/quick_symbol") or "^;.*$"
-    local quick_text = string.sub(quick_text_pattern, 2, 2) or ";"
+    local text_pattern = config:get_string("recognizer/patterns/quick_symbol") or "^;.*$"
+    local lead_char = string.sub(text_pattern, 2, 2) or ";"
 
-    env.single_symbol_pattern = "^" .. quick_text .. "([a-zA-Z0-9])$"
-    env.double_symbol_pattern_text = "^" .. quick_text .. quick_text .. "$"
+    env.single_symbol_pattern = "^" .. lead_char .. "([a-zA-Z0-9])$"
+    env.double_symbol_pattern_text = "^" .. lead_char .. lead_char .. "$"
 
     -- 初始化最后提交内容
     env.last_commit_text = "欢迎使用万象拼音！"
 
     -- 连接提交通知器
-    env.engine.context.commit_notifier:connect(function(ctx)
-        local commit_text = ctx:get_commit_text()
-        if commit_text ~= "" then
-            env.last_commit_text = commit_text -- 更新最后提交内容到env
+    env.quick_symbol_text_commit_notifier = env.engine.context.commit_notifier:connect(
+        function(ctx)
+            local commit_text = ctx:get_commit_text()
+            if commit_text ~= "" then
+                env.last_commit_text = commit_text -- 更新最后提交内容到env
+            end
         end
-    end)
+    )
+
+    env.quick_symbol_text_update_notifier = env.engine.context.update_notifier:connect(
+        function(context)
+            local input = context.input
+            -- 检查用户是否输入双击符号 ;;（或其他配置的触发符号）
+            if string.match(input, env.double_symbol_pattern_text) then
+                -- 提交历史记录中的最新文本
+                env.engine:commit_text(env.last_commit_text) -- 从env获取最后提交内容
+                context:clear()
+            else
+                local match = string.match(input, env.single_symbol_pattern)
+                if match then
+                    local symbol = env.mapping[string.lower(match)] -- 增加大小写兼容
+                    if symbol then
+                        env.engine:commit_text(symbol)
+                        context:clear()
+                    end
+                end
+            end
+        end
+    )
+end
+
+local function fini(env)
+    if env.quick_symbol_text_commit_notifier then
+        env.quick_symbol_text_commit_notifier:disconnect()
+    end
+    if env.quick_symbol_text_update_notifier then
+        env.quick_symbol_text_update_notifier:disconnect()
+    end
 end
 
 -- 处理符号和文本的重复上屏逻辑
 local function processor(key_event, env)
-    local engine = env.engine
-    local context = engine.context
-    local input = context.input
+    local input = env.engine.context.input
+    if string.match(input, env.double_symbol_pattern_text) 
+        or string.match(input, env.single_symbol_pattern) then
+        return wanxiang.RIME_PROCESS_RESULTS.kAccepted
+    end
 
-    -- 检查用户是否输入双击符号 ;;（或其他配置的触发符号）
-    if string.match(input, env.double_symbol_pattern_text) then
-        -- 提交历史记录中的最新文本
-        engine:commit_text(env.last_commit_text) -- 从env获取最后提交内容
-        context:clear()
-        return 1                                 -- 终止处理
-    end
-    -- 处理单个符号输入
-    local match = string.match(input, env.single_symbol_pattern)
-    if match then
-        local symbol = env.mapping[string.lower(match)] -- 增加大小写兼容
-        if symbol then
-            engine:commit_text(symbol)
-            context:clear()
-            return 1 -- 终止处理
-        end
-    end
-    return 2 -- 继续后续处理
+    return wanxiang.RIME_PROCESS_RESULTS.kNoop -- 继续后续处理
 end
-return { init = init, func = processor }
+return { init = init, fini = fini, func = processor }

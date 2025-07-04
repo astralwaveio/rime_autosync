@@ -40,32 +40,31 @@ schema:
 # abbrev: 默认的缩写取 states 的第一个字符，abbrev 可自定义一个字符
 switches:
   - name: ascii_mode                   # 中英输入状态
-    states: [ 中, 英 ]
+    states: [ 中文, 英文 ]
   - name: ascii_punct                  # 中英标点
-    states: [ ¥, $ ]
+    states: [ 中标, 英标 ]
   - name: full_shape                   #全角、半角字符输出
-    states: [ 半, 全 ]
+    states: [ 半角, 全角 ]
   - name: emoji                        #候选出现emoji滤镜，会显示在相应的候选后面，万象侧重于tips提示，避免候选被占用，因此默认为reset: 0，归属opencc emoji滤镜
-    states: [ 🙃, 😄 ]
+    states: [ 表情关, 表情开 ]
   - name: chinese_english              #候选进入翻译模式滤镜，会显示在相应的候选后面，万象侧重于tips提示，避免候选被占用，快捷键配套ctrl+e,归属opencc 翻译滤镜
-    states: [ 译, 翻 ]
+    states: [ 翻译关, 翻译开 ]
   - name: tone_display                 #开启后在输入编码的位置实时转换为带声调全拼，不开启则采用系统配置，快捷键配套ctrl+s,影响的是preedit_format,归属：super_preedit.lua
-    states: [ 调, 声 ]
+    states: [ 声调关, 声调开 ]
   - name: chaifen_switch               #开启后在候选的注释里面实时显示辅助码的拆分提醒优先级高于普通辅助提醒，不开启则采用系统配置，快捷键配套ctrl+c,影响的是comment_format，归属：super_comment.lua
-    states: [ 分, 拆 ]
+    states: [ 拆分关, 拆分开 ]
   - name: charset_filter               #字符集过滤，默认开启8105通规显示，即小字集，可通过开关实时开启全字集，快捷键配套ctrl+g,归属：chars_filter.lua
-    states: [ 小, 大 ]
+    states: [ 小字集, 大字集 ]
   - name: super_tips                   #开启后在输入编码后面的提示区显示实时的提示数据，受tips数据库影响，表情、翻译、车牌、符号等对应关系数据，并可实现句号上屏，不开启则默认，影响的是segment.prompt参数，归属：super_tips.lua
-    states: [ off, tips ]
+    states: [ 提示关, 提示开 ]
     reset: 1
   - options: [ comment_off, fuzhu_hint, tone_hint ]  #开启后在候选的注释里面实时显示辅助码或者全拼声调，不开启则采用系统配置，影响的是comment_format，快捷键配套ctrl+a,归属：super_comment.lua
-    states: [ 注关, 辅开, 调开 ]
+    states: [ 注释关, 辅助开, 读音开 ]
   - options: [ s2s, s2t, s2hk, s2tw ]  # 简繁转换开关组，可以在一个空选项和多个实际“- simplifier@s2hk”引入的项目之前切换，这是一个开关组，你可以将其中任意一个s2s等设置为toggle快捷键，多次按下将轮询
     states: [ 简体, 通繁, 港繁, 臺繁 ]
   - name: prediction                   #开启后输入上屏后继续弹出预测数据候选展示例如输入：你在 ，预测候选： 哪里 干嘛 吗 做等等，predictor配置区可设置详细参数，归属：predict内置插件
-    states: [ 测, 预 ]
+    states: [ 预测关, 预测开 ]
   - name: search_single_char          #多体现在编码重合但候选有单字或者多字的情况`引导的辅码查词时是否单字优先，全拼常见，类似于特定编码情况下、反查状态下的调序能力。归属：search.lua
-    abbrev: [词, 单]
     states: [正常, 单字]
 
 
@@ -75,10 +74,10 @@ engine:
     - predictor                            #联想处理器，与predictor顶层配置配合
     - chord_composer                       #并击处理器，与置顶参数：是否启用并击，选项配合使用
     #- lua_processor@*select_character     #以词定字，默认左中括号上屏一个词的前一个字，右中括号上屏一个词的后一个字
-    - lua_processor@*super_sequence*P      #手动排序，高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
     - lua_processor@*tone_fallback         #声调辅助回退，当你输入声调数字错误时，继续输入正确的而不用回退删除
+    - lua_processor@*super_sequence*P      #手动排序，高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+l 移除位移  ctrl+p 置顶
     - lua_processor@*quick_symbol_text     #快符引导以及重复上屏，配合quick_symbol_text顶层配置清单定义扩展按键
-    - lua_processor@*super_tips*S          #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
+    - lua_processor@*super_tips            #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
     - lua_processor@*limit_repeated        #用于限制最大候选长度以及最大重复输入声母编码长度，避免性能异常
     - lua_processor@*backspace_limit       #防止连续 Backspace 在编码为空时删除已上屏内容
     - lua_processor@*userdb_sync_delete    #危险操作：通过输入 /del 触发,用于清理自定义同步目录下txt用户词典里被标记c<0的词条，操作步骤：必须先同步、再执行/del、再去部署刷新状态、再去同步回收词典，完成动作。
@@ -130,7 +129,6 @@ engine:
     - simplifier@s2hk                               #简繁切换港繁
     - simplifier@chinese_english                    #中英翻译滤镜
     - lua_filter@*search@wanxiang_radical           #部件拆字辅码放在简繁转换之后
-    - lua_filter@*super_tips*M                      #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
     - lua_filter@*super_comment                     #超级注释模块，支持错词提示、辅助码显示，部件组字读音注释，支持个性化配置和关闭相应的功能，详情搜索super_comment进行详细配置
     - lua_filter@*text_formatting                   #给自定义用户词扩展一个换行:\n, 制表符：\t, 回车符：\r, 空格：\s
     - uniquifier                                    #去重
@@ -394,6 +392,7 @@ key_binder:
     - { when: composing, accept: Control+7, send_sequence: '{Home}{Shift+Right}{Shift+Right}{Shift+Right}{Shift+Right}{Shift+Right}{Shift+Right}{Shift+Right}' }
 #当输入编码后发现没有词，则通过双击``进入造词模式而且不需要删除编码，这个功能与``直接引导相呼应相配合
     - { match: "^.*`$", accept: "`", send_sequence: '{BackSpace}{Home}{`}{`}{End}' }
+
 #通过按下/发送/+1节约一个按键，不冲突的时候可以开启
     #- { match: "[a-z]{1,4}", accept: "/",  send_sequence: "/1" }
 #① 翻页 , .

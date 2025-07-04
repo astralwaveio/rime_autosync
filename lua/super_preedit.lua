@@ -1,3 +1,6 @@
+-- 欢迎使用万象拼音方案
+-- @amzxyz
+-- https://github.com/amzxyz/rime_wanxiang
 local function modify_preedit_filter(input, env)
     local config = env.engine.schema.config
     local delimiter = config:get_string('speller/delimiter') or " '"

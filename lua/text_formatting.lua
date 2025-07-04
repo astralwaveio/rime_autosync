@@ -1,4 +1,6 @@
---github.com/amzxyz
+-- 欢迎使用万象拼音方案
+-- @amzxyz
+-- https://github.com/amzxyz/rime_wanxiang
 --给自定义用户词增加一个可以插入其他类型如换行、制表符等，从而上屏格式化的内容格式
 local function text_formatting(input, env)
     -- 定义要处理的转义序列映射表

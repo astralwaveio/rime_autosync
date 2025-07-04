@@ -1,8 +1,10 @@
--- Modified by ksqsf for Project Moran
+-- 欢迎使用万象拼音方案
+-- @amzxyz
+-- https://github.com/amzxyz/rime_wanxiang
 ------------------------------------
 ------wirting by 98wubi Group-------
 ------http://98wb.ys168.com/--------
------万象新增节日候选,格式化问候语,重写农历倒计时---------
+-----万象新增节日候选,格式化问候语,重写农历倒计
 -- *******农历节气计算部分
 -- ========角度变换===============
 local rad = 180 * 3600 / math.pi -- 每弧度的角秒数
